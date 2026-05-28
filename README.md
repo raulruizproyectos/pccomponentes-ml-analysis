@@ -55,7 +55,6 @@ Estructura inicial simplificada. Todavia no hay scraping implementado ni datos g
 
 - Usar `colaboradores/` para pruebas o avances individuales.
 - Pasar a `comun/` solo lo que el equipo decida conservar.
-- Trabajar en ramas separadas: `dani/ram`, `raul/graficas`, `andres/tarea`.
 - Hacer commits pequenos y claros.
 - No subir datos pesados al repositorio.
-- Revisar los cambios antes de unirlos a la rama principal.
+
