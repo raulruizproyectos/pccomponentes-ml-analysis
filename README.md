@@ -1,6 +1,7 @@
 # pccomponentes-ml-analysis
 
-Proyecto colaborativo para extraer datos de componentes de PC.
+Proyecto colaborativo enfocado en la extracción, procesamiento y análisis de datos de la página web de PCcomponentes. El objetivo es construir un pipeline completo de datos que permita obtener información desde fuentes web, limpiarla, almacenarla, analizar tendencias, generar visualizaciones y desarrollar modelos de Machine Learning para mostrar los resultados mediante una aplicación web interactiva.
+
 
 ## Descripcion
 
