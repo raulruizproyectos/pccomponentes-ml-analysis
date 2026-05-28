@@ -1,0 +1,69 @@
+# pccomponentes-ml-analysis
+
+Proyecto colaborativo para extraer datos de componentes de PC.
+
+## Descripcion
+
+El proyecto empieza con la extraccion de informacion de memorias RAM y tarjetas graficas. Mas adelante se ampliara segun el enunciado definitivo.
+
+## Objetivo
+
+Organizar el repositorio para que el equipo pueda trabajar de forma clara en la primera fase del proyecto: buscar fuentes de datos y preparar el scraping inicial.
+
+## Integrantes
+
+- Dani
+- Raul
+- Andres
+
+## Estructura del repositorio
+
+```text
+pccomponentes-ml-analysis/
+|-- README.md
+|-- requirements.txt
+|-- .gitignore
+|-- To_Do_List
+|-- enunciado.ipynb
+|-- colaboradores/
+|   |-- dani/
+|   |-- raul/
+|   `-- andres/
+|-- comun/
+|   |-- datos/
+|   |   |-- brutos/
+|   |   `-- procesados/
+|   `-- codigo/
+|       `-- extraccion/
+|-- notebooks/
+```
+
+## Tareas iniciales
+
+1. Buscar fuentes de datos para memorias RAM.
+2. Buscar fuentes de datos para tarjetas graficas.
+3. Definir que campos se van a extraer.
+4. Preparar los primeros scripts de extraccion.
+5. Guardar los datos obtenidos en `comun/datos/brutos/`.
+
+## Estado actual
+
+Estructura inicial simplificada. Todavia no hay scraping implementado ni datos guardados.
+
+## Instalacion
+
+Cuando se empiece a desarrollar, se puede preparar el entorno con:
+
+```bash
+python -m venv .venv
+pip install -r requirements.txt
+```
+
+## Recomendaciones para GitHub
+
+- Usar `colaboradores/` para pruebas o avances individuales.
+- Pasar a `comun/` solo lo que el equipo decida conservar.
+- Trabajar en ramas separadas: `dani/ram`, `raul/graficas`, `andres/tarea`.
+- Hacer commits pequenos y claros.
+- No subir datos pesados al repositorio.
+- Revisar los cambios antes de unirlos a la rama principal.

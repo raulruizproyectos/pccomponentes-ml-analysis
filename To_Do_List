@@ -1,0 +1,34 @@
+# TODO del proyecto
+
+## Dani - Memorias RAM
+- [ ] Buscar fuentes de datos
+- [ ] Extraer modelo
+- [ ] Extraer precio
+- [ ] Extraer memoria interna
+- [ ] Extraer diseno de memoria
+- [ ] Extraer tipo de memoria
+- [ ] Extraer velocidad/frecuencia
+- [ ] Extraer voltaje
+- [ ] Extraer compatibilidad
+
+## Raul - Tarjetas graficas
+- [ ] Buscar fuentes de datos
+- [ ] Extraer modelo
+- [ ] Extraer precio
+- [ ] Extraer memoria VRAM
+- [ ] Extraer procesador grafico / GPU
+- [ ] Extraer bus de memoria
+- [ ] Extraer velocidad de memoria / reloj boost
+- [ ] Extraer salidas de video
+- [ ] Extraer resolucion maxima
+
+## Andres - Pendiente de definir
+- [ ] Definir tarea inicial
+- [ ] Apoyar la busqueda de fuentes
+- [ ] Revisar la estructura de los datos
+
+## Tareas comunes
+- [ ] Definir fuentes de datos
+- [ ] Acordar nombres de columnas
+- [ ] Preparar primer script de extraccion
+- [ ] Guardar datos brutos en la carpeta correspondiente
