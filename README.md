@@ -55,6 +55,6 @@ Estructura inicial simplificada. Todavia no hay scraping implementado ni datos g
 
 - Usar `colaboradores/` para pruebas o avances individuales.
 - Pasar a `comun/` solo lo que el equipo decida conservar.
-- Hacer commits pequenos y claros.
+- Hacer commits pequeños y claros.
 - No subir datos pesados al repositorio.
 
