@@ -51,15 +51,6 @@ pccomponentes-ml-analysis/
 
 Estructura inicial simplificada. Todavia no hay scraping implementado ni datos guardados.
 
-## Instalacion
-
-Cuando se empiece a desarrollar, se puede preparar el entorno con:
-
-```bash
-python -m venv .venv
-pip install -r requirements.txt
-```
-
 ## Recomendaciones para GitHub
 
 - Usar `colaboradores/` para pruebas o avances individuales.
