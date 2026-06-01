@@ -19,6 +19,11 @@ comun/datos/brutos/*
 comun/datos/procesados/*
 !comun/datos/brutos/.gitkeep
 !comun/datos/procesados/.gitkeep
+data/raw/*
+!data/raw/ram/
+!data/raw/tarjetas_graficas/
+!data/raw/ram/.gitkeep
+!data/raw/tarjetas_graficas/.gitkeep
 *.csv
 *.xlsx
 
