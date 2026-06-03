@@ -1,0 +1,7 @@
+# Configuracion local del proyecto
+
+# Base de datos PostgreSQL local. Se configurara en la fase de base de datos.
+DATABASE_URL=postgresql://usuario:password@localhost:5432/pccomponentes
+
+# Pausa entre peticiones del scraper, en segundos.
+REQUEST_DELAY_SECONDS=2

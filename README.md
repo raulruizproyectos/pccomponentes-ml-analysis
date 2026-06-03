@@ -23,19 +23,17 @@ Organizar el repositorio para que el equipo pueda trabajar de forma clara en la 
 pccomponentes-ml-analysis/
 |-- README.md
 |-- requirements.txt
-|-- .env.example
+|-- configuracion.local
 |-- .gitignore
 |-- To_Do_List
 |-- enunciado.ipynb
-|-- run_scraper.py
+|-- ejecutar_scraper.py
 |-- config/
 |   `-- settings.py
 |-- scrapers/
-|   |-- ram_category.py
-|   |-- ram_product_detail.py
-|   |-- gpu_category.py
-|   |-- gpu_product_detail.py
-|   `-- utils.py
+|   |-- listado.py
+|   |-- detalle.py
+|   `-- utilidades.py
 |-- data/
 |   `-- raw/
 |       |-- ram/

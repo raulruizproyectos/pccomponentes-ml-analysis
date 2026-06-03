@@ -1,1 +1,1 @@
-"""Scrapers para extraer informacion de PcComponentes."""
+"""Scrapers del proyecto."""
