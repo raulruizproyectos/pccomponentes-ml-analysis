@@ -39,7 +39,7 @@ pccomponentes-ml-analysis/
 |   |-- detalle.py
 |   `-- utilidades.py
 |-- data/
-|   `-- raw/
+|   `-- brutos/
 |       |-- ram/
 |       `-- tarjetas_graficas/
 |-- pipeline/
@@ -69,7 +69,7 @@ El proyecto se divide en dos familias de productos:
 - RAM: extraccion de listados, detalles tecnicos, precios y resenas.
 - Tarjetas graficas: extraccion de modelo, precio, VRAM, GPU, bus de memoria, reloj boost, salidas de video, resolucion maxima, resenas y valoraciones.
 
-Los datos crudos se guardaran como JSON dentro de `data/raw/`. No se deben subir datos reales al repositorio.
+Los datos brutos se guardaran como JSON dentro de `data/brutos/`. No se deben subir datos reales al repositorio.
 
 ## Tareas iniciales
 

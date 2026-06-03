@@ -7,6 +7,6 @@ ETL significa:
 """
 
 
-def process_raw_data():
-    """Placeholder para procesar JSON crudos y prepararlos para PostgreSQL."""
+def procesar_datos_brutos():
+    """Pendiente: limpiar datos brutos antes de cargarlos en PostgreSQL."""
     raise NotImplementedError("Pendiente de implementar en la fase de pipeline.")
