@@ -26,8 +26,12 @@ pccomponentes-ml-analysis/
 |-- configuracion.local
 |-- .gitignore
 |-- To_Do_List
-|-- enunciado.ipynb
+|-- enunciado.md
 |-- ejecutar_scraper.py
+|-- database/
+|   |-- conexion.py
+|   |-- consultas.py
+|   `-- inserciones.py
 |-- config/
 |   `-- settings.py
 |-- scrapers/
@@ -43,10 +47,6 @@ pccomponentes-ml-analysis/
 |-- models/
 |-- api/
 |-- streamlit_app/
-|-- colaboradores/
-|   |-- dani/
-|   |-- raul/
-|   `-- andres/
 |-- comun/
 |   |-- datos/
 |   |   |-- brutos/
@@ -55,7 +55,9 @@ pccomponentes-ml-analysis/
 |       `-- extraccion/
 |-- notebooks/
 |   |-- 01_eda_ram.ipynb
-|   `-- 02_eda_tarjetas_graficas.ipynb
+|   |-- 02_eda_tarjetas_graficas.ipynb
+|   |-- 03_conexion_postgresql.ipynb
+|   `-- 04_validacion_database.ipynb
 |-- docs/
 |   `-- fuentes_tarjetas_graficas.md
 ```
@@ -79,11 +81,11 @@ Los datos crudos se guardaran como JSON dentro de `data/raw/`. No se deben subir
 
 ## Estado actual
 
-Estructura inicial simplificada. Todavia no hay scraping implementado ni datos guardados.
+Base de datos local preparada en PostgreSQL y conexion validada desde Python con `psycopg`.
+El scraping real todavia no ha empezado.
 
 ## Recomendaciones para GitHub
 
-- Usar `colaboradores/` para pruebas o avances individuales.
 - Pasar a `comun/` solo lo que el equipo decida conservar.
 - Hacer commits pequeños y claros.
 - No subir datos pesados al repositorio.
