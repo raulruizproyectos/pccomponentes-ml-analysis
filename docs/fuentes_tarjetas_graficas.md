@@ -4,6 +4,8 @@
 
 Analizar de donde vamos a extraer los datos de tarjetas graficas antes de programar el scraper.
 
+Convencion: cuando PcComponentes no muestra un dato, se registra como `NULL`. Al preparar los datos en Python se utilizara `None`.
+
 ## Campos a extraer
 
 | Campo | Ejemplo | Fuente en la pagina | Dificultad | Notas |
@@ -42,7 +44,7 @@ Ancho de banda de memoria detectado: 28 GB/s (máx)
 
 Velocidad de transferencia de memoria detectada: 28 Gbit/s
 
-Reloj base detectado:
+Reloj base detectado: NULL
 
 Reloj boost detectado: 2542 MHz
 
@@ -229,9 +231,9 @@ Opinion destacada: si
 
 Fecha: Hace 6 meses
 
-Variante/modelo:
+Variante/modelo: NULL
 
-Color:
+Color: NULL
 
 Texto:
 Muy buen rendimiento para el precio que tiene. No conocia esta marca, tenia mis dudas antes de comprarla, pero la primera impresion es buena. Acabo de instalarla, aun la he probado poco. Veremos si aguanta el paso del tiempo, de momento creo que hay que darle un voto de confianza a esta marca.
@@ -263,9 +265,9 @@ Opinion destacada: no
 
 Fecha: Hace 4 meses
 
-Variante/modelo:
+Variante/modelo: NULL
 
-Color:
+Color: NULL
 
 Texto:
 Pues podria darle buena nota porque me costo 275€ y por ese precio cumple, pero el caso es que ya un par de veces en 2 meses me ha hecho una cosa muy rara: se ponen los ventiladores a full, pierdo la señal de las pantallas y la grafica da sensacion de muerta. He tenido que conectar la pantalla a la ...
@@ -297,9 +299,9 @@ Opinion destacada: no
 
 Fecha: Hace 3 meses
 
-Variante/modelo:
+Variante/modelo: NULL
 
-Color:
+Color: NULL
 
 Texto:
 Es una grafica estupenda calidad precio, quizas si tuviera 12 gb vram mejor.
@@ -334,7 +336,7 @@ Ancho de banda de memoria detectado: 448 GB/s
 
 Velocidad de transferencia de memoria detectada: 28 Gbps
 
-Reloj base detectado:
+Reloj base detectado: NULL
 
 Reloj boost detectado: 2572 MHz
 
@@ -371,7 +373,7 @@ Opinion destacada: no
 
 Fecha: Hace 11 meses
 
-Variante/modelo:
+Variante/modelo: NULL
 
 Color: Negro
 

@@ -1,15 +1,13 @@
 # pccomponentes-ml-analysis
 
-Proyecto colaborativo enfocado en la extracción, procesamiento y análisis de datos de la página web de PCcomponentes. El objetivo es construir un pipeline completo de datos que permita obtener información desde fuentes web, limpiarla, almacenarla, analizar tendencias, generar visualizaciones y desarrollar modelos de Machine Learning para mostrar los resultados mediante una aplicación web interactiva.
+Proyecto para recoger y analizar datos de productos de PcComponentes.
 
+De momento estamos trabajando con dos tipos de productos:
 
-## Descripcion
+- Tarjetas graficas.
+- Memorias RAM.
 
-El proyecto empieza con la extraccion de informacion de memorias RAM y tarjetas graficas. Mas adelante se ampliara segun el enunciado definitivo.
-
-## Objetivo
-
-Organizar el repositorio para que el equipo pueda trabajar de forma clara en la primera fase del proyecto: buscar fuentes de datos y preparar el scraping inicial.
+La idea es guardar los productos, sus especificaciones, valoraciones y resenas en PostgreSQL. Mas adelante usaremos estos datos para hacer analisis y modelos de Machine Learning.
 
 ## Integrantes
 
@@ -17,18 +15,35 @@ Organizar el repositorio para que el equipo pueda trabajar de forma clara en la 
 - Raul
 - Andres
 
-## Estructura del repositorio
+## Estado actual
+
+Ya tenemos preparada una base de datos local llamada `pccomponentes_ml`.
+
+Las tablas actuales son:
+
+- `productos`: datos comunes de todos los productos.
+- `especificaciones_gpu`: datos tecnicos de tarjetas graficas.
+- `especificaciones_ram`: datos tecnicos de memorias RAM.
+- `distribucion_valoraciones`: cantidad de valoraciones de 1 a 5 estrellas.
+- `resenas`: opiniones de los usuarios.
+
+La tabla `productos` tiene una columna llamada `categoria` para distinguir:
+
+- `tarjeta_grafica`
+- `memoria_ram`
+
+Tambien se han probado las funciones de insercion y consulta con dos tarjetas graficas y una memoria RAM.
+
+## Estructura principal
 
 ```text
 pccomponentes-ml-analysis/
 |-- README.md
 |-- requirements.txt
 |-- configuracion.local
-|-- .gitignore
-|-- To_Do_List
-|-- enunciado.md
 |-- ejecutar_scraper.py
 |-- database/
+|   |-- esquema.sql
 |   |-- conexion.py
 |   |-- consultas.py
 |   `-- inserciones.py
@@ -38,54 +53,77 @@ pccomponentes-ml-analysis/
 |   |-- listado.py
 |   |-- detalle.py
 |   `-- utilidades.py
-|-- data/
-|   `-- brutos/
-|       |-- ram/
-|       `-- tarjetas_graficas/
 |-- pipeline/
 |   `-- etl_processor.py
-|-- models/
-|-- api/
-|-- streamlit_app/
-|-- comun/
-|   |-- datos/
-|   |   |-- brutos/
-|   |   `-- procesados/
-|   `-- codigo/
-|       `-- extraccion/
 |-- notebooks/
 |   |-- 01_eda_ram.ipynb
 |   |-- 02_eda_tarjetas_graficas.ipynb
 |   |-- 03_conexion_postgresql.ipynb
 |   `-- 04_validacion_database.ipynb
 |-- docs/
-|   `-- fuentes_tarjetas_graficas.md
+|   |-- fuentes_tarjetas_graficas.md
+|   `-- fuentes_memorias_ram.md
+`-- comun/
+    |-- datos/
+    `-- codigo/
 ```
 
-## Lineas de extraccion iniciales
+## Archivos de base de datos
 
-El proyecto se divide en dos familias de productos:
+`database/esquema.sql`
 
-- RAM: extraccion de listados, detalles tecnicos, precios y resenas.
-- Tarjetas graficas: extraccion de modelo, precio, VRAM, GPU, bus de memoria, reloj boost, salidas de video, resolucion maxima, resenas y valoraciones.
+Contiene el SQL necesario para crear las tablas desde cero.
 
-Los datos brutos se guardaran como JSON dentro de `data/brutos/`. No se deben subir datos reales al repositorio.
+`database/conexion.py`
 
-## Tareas iniciales
+Contiene la funcion para conectar Python con PostgreSQL.
 
-1. Buscar fuentes de datos para memorias RAM.
-2. Buscar fuentes de datos para tarjetas graficas.
-3. Definir que campos se van a extraer.
-4. Preparar los primeros scripts de extraccion.
-5. Guardar los datos obtenidos en `comun/datos/brutos/`.
+`database/inserciones.py`
 
-## Estado actual
+Contiene funciones para insertar:
 
-Base de datos local preparada en PostgreSQL y conexion validada desde Python con `psycopg`.
-El scraping real todavia no ha empezado.
+- Productos.
+- Especificaciones GPU.
+- Especificaciones RAM.
+- Distribuciones de valoraciones.
+- Resenas.
 
-## Recomendaciones para GitHub
+`database/consultas.py`
 
-- Pasar a `comun/` solo lo que el equipo decida conservar.
-- Hacer commits pequeños y claros.
-- No subir datos pesados al repositorio.
+Contiene funciones para consultar productos, especificaciones, resumenes y resenas.
+
+## Documentacion de productos
+
+En la carpeta `docs/` guardamos los datos recogidos manualmente desde PcComponentes.
+
+Solo usamos datos que aparecen en PcComponentes. Si un dato no aparece, se escribe `NULL`. Cuando se prepara ese dato en Python se utiliza `None`.
+
+## Instalacion
+
+Instalar las dependencias:
+
+```bash
+pip install -r requirements.txt
+```
+
+Despues hay que crear la base de datos `pccomponentes_ml` en PostgreSQL y ejecutar:
+
+```text
+database/esquema.sql
+```
+
+Los datos de conexion se guardan de forma local y no se deben subir a GitHub.
+
+## Uso de los notebooks
+
+Los notebooks se utilizan solo para hacer pruebas y revisar resultados.
+
+El codigo principal debe quedar en:
+
+- `database/`
+- `scrapers/`
+- `pipeline/`
+
+## Siguiente paso
+
+El siguiente paso es empezar el scraper de memorias RAM con una sola URL, guardar el HTML y comprobar la extraccion antes de hacer pruebas con mas productos.
