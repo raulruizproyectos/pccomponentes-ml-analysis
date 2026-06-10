@@ -9,25 +9,16 @@ def insertar_resenas(conn, data_resenas):
                 producto_id,
                 usuario,
                 valoracion,
-                opinion_verificada,
-                opinion_destacada,
-                fecha_resena_texto,
-                variante_modelo,
-                color,
                 texto_resena,
                 pros,
-                contras,
-                likes,
-                numero_respuestas,
-                tiene_imagen
+                contras
             )
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);
+            VALUES (%s, %s, %s, %s, %s, %s);
         """,
         params_seq=data_resenas
     )
 
     conn.commit()
-
 
 def insertar_productos(conn, data_productos):
     cursor = conn.cursor()
@@ -36,6 +27,7 @@ def insertar_productos(conn, data_productos):
         query="""
             INSERT INTO productos (
                 url,
+                categoria,
                 modelo,
                 marca,
                 precio,
@@ -44,7 +36,7 @@ def insertar_productos(conn, data_productos):
                 porcentaje_recomendacion,
                 numero_recomendaciones
             )
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s);
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s);
         """,
         params_seq=data_productos
     )
@@ -52,12 +44,12 @@ def insertar_productos(conn, data_productos):
     conn.commit()
 
 
-def insertar_especificaciones(conn, data_especificaciones):
+def insertar_especificaciones_gpu(conn, data_especificaciones_gpu):
     cursor = conn.cursor()
 
     cursor.executemany(
         query="""
-            INSERT INTO especificaciones_producto (
+            INSERT INTO especificaciones_gpu (
                 producto_id,
                 gpu,
                 memoria_vram,
@@ -72,7 +64,28 @@ def insertar_especificaciones(conn, data_especificaciones):
             )
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);
         """,
-        params_seq=data_especificaciones
+        params_seq=data_especificaciones_gpu
+    )
+
+    conn.commit()
+
+def insertar_especificaciones_ram(conn, data_especificaciones_ram):
+    cursor = conn.cursor()
+
+    cursor.executemany(
+        query="""
+            INSERT INTO especificaciones_ram (
+                producto_id,
+                memoria_interna,
+                diseno_memoria,
+                tipo_memoria,
+                velocidad_frecuencia,
+                voltaje,
+                compatibilidad
+            )
+            VALUES (%s, %s, %s, %s, %s, %s, %s);
+        """,
+        params_seq=data_especificaciones_ram
     )
 
     conn.commit()
