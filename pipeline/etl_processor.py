@@ -4,7 +4,7 @@ Pipeline ETL (Extract-Transform-Load) del proyecto.
 Actualmente implementado solo para el flujo de memorias RAM.
 
 Flujo típico:
-    1. Los scrapers producen JSON "bruto" en data/brutos/ram/
+    1. Los scrapers producen JSON "bruto" en comun/datos/brutos/ram/
     2. Esta capa lee esos JSON, prepara tuplas limpias y las inserta
        en PostgreSQL usando las funciones de database/inserciones.py
     3. (Futuro) Transformaciones más avanzadas: normalización de nombres

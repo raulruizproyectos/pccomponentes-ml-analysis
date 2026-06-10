@@ -61,8 +61,8 @@ def _crear_parser() -> argparse.ArgumentParser:
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=(
             "Ficheros generados:\n"
-            "  data/brutos/ram/listado_ram.json\n"
-            "  data/brutos/ram/detalle_ram.json\n"
+            "  comun/datos/brutos/ram/listado_ram.json\n"
+            "  comun/datos/brutos/ram/detalle_ram.json\n"
         ),
     )
 
