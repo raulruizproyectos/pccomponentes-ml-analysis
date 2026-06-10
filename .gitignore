@@ -14,18 +14,7 @@ env/
 .env
 .env.*
 
-# Datos
-comun/datos/brutos/*
-comun/datos/procesados/*
-!comun/datos/brutos/.gitkeep
-!comun/datos/procesados/.gitkeep
-data/raw/*
-!data/raw/ram/
-!data/raw/tarjetas_graficas/
-!data/raw/ram/.gitkeep
-!data/raw/tarjetas_graficas/.gitkeep
-*.csv
-*.xlsx
+
 
 # Archivos temporales
 *.log
@@ -37,3 +26,21 @@ data/raw/*
 .DS_Store
 Thumbs.db
 .vscode/
+
+# ============================================
+# Datos del proyecto (decisión del equipo)
+# ============================================
+# Incluimos intencionalmente los JSON de datos RAM para que el equipo
+# pequeño pueda trabajar con los datos reales sin tener que re-scrapear.
+!data/brutos/ram/listado_ram.json
+!data/brutos/ram/detalle_ram.json
+
+# Excluimos backups, muestras de desarrollo y otros formatos
+data/brutos/ram/*.pre-*
+data/brutos/ram/*sample*.json
+data/brutos/ram/*.log
+*.csv
+*.xlsx
+
+# Nota: si el repo se hace público o crece mucho el equipo,
+# volver a considerar no commitear datos reales o usar Git LFS.

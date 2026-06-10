@@ -69,7 +69,9 @@ El proyecto se divide en dos familias de productos:
 - RAM: extraccion de listados, detalles tecnicos, precios y resenas.
 - Tarjetas graficas: extraccion de modelo, precio, VRAM, GPU, bus de memoria, reloj boost, salidas de video, resolucion maxima, resenas y valoraciones.
 
-Los datos brutos se guardaran como JSON dentro de `data/brutos/`. No se deben subir datos reales al repositorio.
+Los datos brutos se guardan como JSON dentro de `data/brutos/`.
+
+**Nota del equipo:** Se ha decidido incluir los archivos de datos reales (listado_ram.json y detalle_ram.json) en el repositorio. Esto es para facilitar el trabajo colaborativo interno entre los compañeros del proyecto (no es un repo público). Si en el futuro se hace público o se amplía el equipo, se revisará esta decisión.
 
 ## Tareas iniciales
 
@@ -81,11 +83,9 @@ Los datos brutos se guardaran como JSON dentro de `data/brutos/`. No se deben su
 
 ## Estado actual
 
-Base de datos local preparada en PostgreSQL y conexion validada desde Python con `psycopg`.
-El scraping real todavia no ha empezado.
+- Scraper de listado + detalle para **memorias RAM** completado (1646 productos).
+- Extracción de resenas (muestra embebida en JSON-LD, hasta 15 por producto) + especificaciones técnicas (tipo, capacidad, kit, frecuencia, CL, compat etc) implementada y probada.
+- Datos brutos en data/brutos/ram/ (detalle_ram.json enriquecido offline con specs; para resenas completas hace falta re-run del detalle o fetch selectivo).
+- DB schema e inserciones extendidas para RAM (productos + especificaciones_ram + resenas).
+- Pendiente: ETL de carga a PostgreSQL, EDA en notebooks, inicio de scraper de tarjetas gráficas.
 
-## Recomendaciones para GitHub
-
-- Pasar a `comun/` solo lo que el equipo decida conservar.
-- Hacer commits pequeños y claros.
-- No subir datos pesados al repositorio.
