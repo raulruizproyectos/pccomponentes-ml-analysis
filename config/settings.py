@@ -20,10 +20,9 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
-# Esquema original del proyecto: datos brutos en comun/datos/brutos/
-COMUN_DIR = PROJECT_ROOT / "comun"
-DATOS_DIR = COMUN_DIR / "datos"
-BRUTOS_DATA_DIR = DATOS_DIR / "brutos"
+# Rutas de datos brutos (estandarizado en data/brutos/)
+DATA_DIR = PROJECT_ROOT / "data"
+BRUTOS_DATA_DIR = DATA_DIR / "brutos"
 
 # ---------------------------------------------------------------------------
 # Scraper de memorias RAM (PcComponentes)

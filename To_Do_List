@@ -30,7 +30,7 @@
 ## Tareas comunes
 - [x] Definir fuentes de datos
 - [x] Preparar primer script de extraccion (listado+detalle RAM completo ~1646 prods)
-- [x] Guardar datos brutos en la carpeta correspondiente (comun/datos/brutos/ram/*.json)
+- [x] Guardar datos brutos en la carpeta correspondiente (data/brutos/ram/*.json)
 - [x] Limpieza + documentación exhaustiva de scrapers (comentarios, docstrings, eliminación de redundancia y código muerto)
 - [ ] Acordar nombres de columnas / schema final (RAM + GPU)
 - [ ] Cargar a PostgreSQL via ETL (usar datos actuales + nuevos campos)

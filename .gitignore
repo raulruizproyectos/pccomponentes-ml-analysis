@@ -32,14 +32,13 @@ Thumbs.db
 # ============================================
 # Incluimos intencionalmente los JSON de datos RAM para que el equipo
 # pequeño pueda trabajar con los datos reales sin tener que re-scrapear.
-# Ubicación según esquema original: comun/datos/brutos/
-!comun/datos/brutos/ram/listado_ram.json
-!comun/datos/brutos/ram/detalle_ram.json
+!data/brutos/ram/listado_ram.json
+!data/brutos/ram/detalle_ram.json
 
 # Excluimos backups, muestras de desarrollo y otros formatos
-comun/datos/brutos/ram/*.pre-*
-comun/datos/brutos/ram/*sample*.json
-comun/datos/brutos/ram/*.log
+data/brutos/ram/*.pre-*
+data/brutos/ram/*sample*.json
+data/brutos/ram/*.log
 *.csv
 *.xlsx
 

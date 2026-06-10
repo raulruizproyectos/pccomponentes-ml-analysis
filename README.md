@@ -49,7 +49,6 @@ pccomponentes-ml-analysis/
 |-- streamlit_app/
 |-- comun/
 |   |-- datos/
-|   |   |-- brutos/
 |   |   `-- procesados/
 |   `-- codigo/
 |       `-- extraccion/
@@ -71,7 +70,7 @@ El proyecto se divide en dos familias de productos:
 
 Los datos brutos se guardan como JSON dentro de `comun/datos/brutos/`.
 
-**Nota del equipo:** Se ha decidido incluir los archivos de datos reales (listado_ram.json y detalle_ram.json) en el repositorio bajo `comun/datos/brutos/`. Esto es para facilitar el trabajo colaborativo interno entre los compañeros del proyecto (no es un repo público). Si en el futuro se hace público o se amplía el equipo, se revisará esta decisión.
+**Nota del equipo:** Se ha decidido incluir los archivos de datos reales (listado_ram.json y detalle_ram.json) en el repositorio bajo `data/brutos/`. Esto es para facilitar el trabajo colaborativo interno entre los compañeros del proyecto (no es un repo público). Si en el futuro se hace público o se amplía el equipo, se revisará esta decisión.
 
 ## Tareas iniciales
 
@@ -79,13 +78,13 @@ Los datos brutos se guardan como JSON dentro de `comun/datos/brutos/`.
 2. Buscar fuentes de datos para tarjetas graficas.
 3. Definir que campos se van a extraer.
 4. Preparar los primeros scripts de extraccion.
-5. Guardar los datos obtenidos en `comun/datos/brutos/`.
+5. Guardar los datos obtenidos en `data/brutos/`.
 
 ## Estado actual
 
 - Scraper de listado + detalle para **memorias RAM** completado (1646 productos).
 - Extracción de resenas (muestra embebida en JSON-LD, hasta 15 por producto) + especificaciones técnicas (tipo, capacidad, kit, frecuencia, CL, compat etc) implementada y probada.
-- Datos brutos en comun/datos/brutos/ram/ (detalle_ram.json enriquecido offline con specs; para resenas completas hace falta re-run del detalle o fetch selectivo).
+- Datos brutos en data/brutos/ram/ (detalle_ram.json enriquecido offline con specs; para resenas completas hace falta re-run del detalle o fetch selectivo).
 - DB schema e inserciones extendidas para RAM (productos + especificaciones_ram + resenas).
 - Pendiente: ETL de carga a PostgreSQL, EDA en notebooks, inicio de scraper de tarjetas gráficas.
 
