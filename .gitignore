@@ -27,6 +27,9 @@ env/
 Thumbs.db
 .vscode/
 
+# Archivos internos de trabajo
+AGENTS.md
+
 # ============================================
 # Datos del proyecto (decisión del equipo)
 # ============================================
