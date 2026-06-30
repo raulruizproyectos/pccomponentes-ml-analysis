@@ -89,6 +89,53 @@ def extraer_frecuencia_mhz(nombre):
     return None
 
 
+def capacidad_es_valida(valor):
+    return isinstance(valor, (int, float)) and 1 <= valor <= 4096
+
+
+def extraer_capacidad_gb(nombre):
+    partes = (nombre or "").lower().replace("/", " ").split()
+
+    for indice, parte in enumerate(partes):
+        parte_limpia = parte.strip("(),")
+
+        if parte_limpia.endswith("gb"):
+            cantidad = parte_limpia[:-2]
+
+            if cantidad.isdigit():
+                capacidad = int(cantidad)
+
+                if capacidad_es_valida(capacidad):
+                    return capacidad
+
+            componentes = cantidad.split("x")
+
+            if (
+                len(componentes) == 2
+                and componentes[0].isdigit()
+                and componentes[1].isdigit()
+            ):
+                capacidad = (
+                    int(componentes[0])
+                    * int(componentes[1])
+                )
+
+                if capacidad_es_valida(capacidad):
+                    return capacidad
+
+        if (
+            parte_limpia == "gb"
+            and indice > 0
+            and partes[indice - 1].isdigit()
+        ):
+            capacidad = int(partes[indice - 1])
+
+            if capacidad_es_valida(capacidad):
+                return capacidad
+
+    return None
+
+
 def limpiar_producto(producto_listado, producto_detalle):
     opiniones = producto_detalle.get("opiniones") if producto_detalle else {}
     nombre = producto_detalle.get("nombre") if producto_detalle else producto_listado.get("nombre")
@@ -119,15 +166,35 @@ def limpiar_producto(producto_listado, producto_detalle):
 def limpiar_especificaciones(producto_detalle):
     especificaciones = producto_detalle.get("especificaciones") or {}
     nombre = producto_detalle.get("nombre")
-    frecuencia_mhz = especificaciones.get("frecuencia_mhz") or extraer_frecuencia_mhz(nombre)
+
+    frecuencia_mhz = (
+        especificaciones.get("frecuencia_mhz")
+        or extraer_frecuencia_mhz(nombre)
+    )
+
+    capacidad_gb = especificaciones.get("capacidad_gb")
+    num_modulos = especificaciones.get("num_modulos")
+    capacidad_por_modulo_gb = especificaciones.get(
+        "capacidad_por_modulo_gb"
+    )
+
+    if not capacidad_es_valida(capacidad_gb):
+        capacidad_gb = extraer_capacidad_gb(nombre)
+
+    if (
+        not capacidad_es_valida(capacidad_por_modulo_gb)
+        and capacidad_gb
+        and num_modulos
+    ):
+        capacidad_por_modulo_gb = capacidad_gb / num_modulos
 
     especificaciones_limpias = {
         "producto_id": producto_detalle.get("id"),
         "tipo_memoria": especificaciones.get("tipo_memoria"),
-        "capacidad_gb": especificaciones.get("capacidad_gb"),
+        "capacidad_gb": capacidad_gb,
         "kit": especificaciones.get("kit"),
-        "num_modulos": especificaciones.get("num_modulos"),
-        "capacidad_por_modulo_gb": especificaciones.get("capacidad_por_modulo_gb"),
+        "num_modulos": num_modulos,
+        "capacidad_por_modulo_gb": capacidad_por_modulo_gb,
         "frecuencia_mhz": frecuencia_mhz,
         "latencia_cl": especificaciones.get("latencia_cl"),
         "voltaje": especificaciones.get("voltaje"),
@@ -235,6 +302,20 @@ def validar_resultados(datos_limpios):
     ]
 
     assert len(productos_con_id) == len(datos_limpios["productos"])
+
+    assert all(
+        especificacion.get("capacidad_gb") is None
+        or capacidad_es_valida(especificacion.get("capacidad_gb"))
+        for especificacion in datos_limpios["especificaciones"]
+    )
+
+    assert all(
+        especificacion.get("capacidad_por_modulo_gb") is None
+        or capacidad_es_valida(
+            especificacion.get("capacidad_por_modulo_gb")
+        )
+        for especificacion in datos_limpios["especificaciones"]
+    )
 
 
 def main():
