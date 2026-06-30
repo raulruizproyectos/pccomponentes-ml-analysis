@@ -1,20 +1,24 @@
 -- Esquema PostgreSQL del proyecto pccomponentes_ml.
--- Adaptado a los datos brutos actuales de RAM extraidos desde PcComponentes.
+-- Adaptado a los datos limpios actuales de RAM extraídos desde PcComponentes.
 
 CREATE TABLE IF NOT EXISTS productos (
     producto_id VARCHAR(30) PRIMARY KEY,
+    nombre VARCHAR(300) NOT NULL,
     url TEXT UNIQUE NOT NULL,
-    categoria VARCHAR(30) NOT NULL,
-    modelo VARCHAR(300) NOT NULL,
+    sku VARCHAR(100) NOT NULL,
     marca VARCHAR(100),
-    sku VARCHAR(100),
-    precio NUMERIC(10, 2),
-    moneda VARCHAR(10) DEFAULT 'EUR',
+    categoria VARCHAR(30) NOT NULL,
+    precio NUMERIC(10, 2) NOT NULL,
+    moneda VARCHAR(10) NOT NULL DEFAULT 'EUR',
     valoracion_media NUMERIC(4, 2),
-    numero_total_opiniones INT,
+    total_opiniones INT NOT NULL DEFAULT 0,
+    total_resenas_con_texto INT,
     porcentaje_recomendacion NUMERIC(5, 2),
     numero_recomendaciones INT,
-    fuente VARCHAR(100),
+    pagina_origen INT NOT NULL,
+    posicion_listado INT NOT NULL,
+    presente_en_detalle BOOLEAN NOT NULL,
+    fuente VARCHAR(100) NOT NULL,
     CONSTRAINT productos_categoria_valida
         CHECK (categoria IN ('tarjeta_grafica', 'memoria_ram'))
 );
@@ -42,32 +46,27 @@ CREATE TABLE IF NOT EXISTS distribucion_valoraciones (
     producto_id VARCHAR(30) PRIMARY KEY
         REFERENCES productos(producto_id)
         ON DELETE CASCADE,
-    estrellas_5 INT DEFAULT 0,
-    estrellas_4 INT DEFAULT 0,
-    estrellas_3 INT DEFAULT 0,
-    estrellas_2 INT DEFAULT 0,
-    estrellas_1 INT DEFAULT 0,
-    fuente_desglose VARCHAR(100)
+    estrellas_5 INT NOT NULL DEFAULT 0,
+    estrellas_4 INT NOT NULL DEFAULT 0,
+    estrellas_3 INT NOT NULL DEFAULT 0,
+    estrellas_2 INT NOT NULL DEFAULT 0,
+    estrellas_1 INT NOT NULL DEFAULT 0,
+    fuente_desglose VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS resenas (
-    resena_id SERIAL PRIMARY KEY,
+    resena_id VARCHAR(50) PRIMARY KEY,
     producto_id VARCHAR(30) NOT NULL
         REFERENCES productos(producto_id)
         ON DELETE CASCADE,
-    usuario VARCHAR(150),
-    valoracion NUMERIC(3, 1),
-    opinion_verificada BOOLEAN,
-    opinion_destacada BOOLEAN,
-    fecha_resena_texto TEXT,
+    valoracion NUMERIC(3, 1) NOT NULL,
+    fecha_resena_texto TEXT NOT NULL,
     variante_modelo VARCHAR(150),
-    color VARCHAR(100),
-    texto_resena TEXT,
+    texto_resena TEXT NOT NULL,
     pros TEXT,
     contras TEXT,
     likes INT,
-    numero_respuestas INT,
-    tiene_imagen BOOLEAN
+    numero_respuestas INT
 );
 
 CREATE TABLE IF NOT EXISTS especificaciones_gpu (
