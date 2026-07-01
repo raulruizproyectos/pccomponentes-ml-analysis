@@ -6,6 +6,7 @@
 
 import json
 from pathlib import Path
+import re
 
 
 RAIZ_PROYECTO = Path(__file__).resolve().parents[1]
@@ -50,11 +51,51 @@ MARCAS_RAM = [
     "CoreParts",
 ]
 
+
+def corregir_codificacion(valor):
+    if isinstance(valor, str):
+        texto = valor
+
+        for _ in range(3):
+            partes_corregidas = []
+
+            for parte in re.split(r"([ \t\r\n]+)", texto):
+                try:
+                    parte = parte.encode("latin1").decode("utf-8")
+                except UnicodeError:
+                    pass
+
+                partes_corregidas.append(parte)
+
+            texto_corregido = "".join(partes_corregidas)
+
+            if texto_corregido == texto:
+                break
+
+            texto = texto_corregido
+
+        return texto
+
+    if isinstance(valor, list):
+        return [
+            corregir_codificacion(elemento)
+            for elemento in valor
+        ]
+
+    if isinstance(valor, dict):
+        return {
+            clave: corregir_codificacion(elemento)
+            for clave, elemento in valor.items()
+        }
+
+    return valor
+
+
 def leer_json(ruta):
     with open(ruta, encoding="utf-8") as archivo:
         datos = json.load(archivo)
 
-    return datos
+    return corregir_codificacion(datos)
 
 
 def guardar_json(datos, ruta):
@@ -90,7 +131,16 @@ def extraer_frecuencia_mhz(nombre):
 
 
 def capacidad_es_valida(valor):
-    return isinstance(valor, (int, float)) and 1 <= valor <= 4096
+    capacidades_validas = {
+        0.25, 0.5, 1, 2, 4, 8, 12, 16, 24, 32,
+        48, 64, 96, 128, 192, 256, 384, 512,
+        768, 1024, 1536, 2048, 3072, 4096,
+    }
+
+    return (
+        isinstance(valor, (int, float))
+        and valor in capacidades_validas
+    )
 
 
 def extraer_capacidad_gb(nombre):
@@ -100,13 +150,7 @@ def extraer_capacidad_gb(nombre):
         parte_limpia = parte.strip("(),")
 
         if parte_limpia.endswith("gb"):
-            cantidad = parte_limpia[:-2]
-
-            if cantidad.isdigit():
-                capacidad = int(cantidad)
-
-                if capacidad_es_valida(capacidad):
-                    return capacidad
+            cantidad = parte_limpia[:-2].replace(",", ".")
 
             componentes = cantidad.split("x")
 
@@ -123,12 +167,21 @@ def extraer_capacidad_gb(nombre):
                 if capacidad_es_valida(capacidad):
                     return capacidad
 
-        if (
-            parte_limpia == "gb"
-            and indice > 0
-            and partes[indice - 1].isdigit()
-        ):
-            capacidad = int(partes[indice - 1])
+            try:
+                capacidad = float(cantidad)
+            except ValueError:
+                capacidad = None
+
+            if capacidad_es_valida(capacidad):
+                return capacidad
+
+        if parte_limpia == "gb" and indice > 0:
+            cantidad = partes[indice - 1].replace(",", ".")
+
+            try:
+                capacidad = float(cantidad)
+            except ValueError:
+                capacidad = None
 
             if capacidad_es_valida(capacidad):
                 return capacidad
@@ -172,21 +225,25 @@ def limpiar_especificaciones(producto_detalle):
         or extraer_frecuencia_mhz(nombre)
     )
 
-    capacidad_gb = especificaciones.get("capacidad_gb")
+    capacidad_gb = extraer_capacidad_gb(nombre)
     num_modulos = especificaciones.get("num_modulos")
     capacidad_por_modulo_gb = especificaciones.get(
         "capacidad_por_modulo_gb"
     )
 
-    if not capacidad_es_valida(capacidad_gb):
-        capacidad_gb = extraer_capacidad_gb(nombre)
+    if capacidad_gb is None:
+        capacidad_original = especificaciones.get("capacidad_gb")
 
-    if (
-        not capacidad_es_valida(capacidad_por_modulo_gb)
-        and capacidad_gb
-        and num_modulos
-    ):
-        capacidad_por_modulo_gb = capacidad_gb / num_modulos
+        if capacidad_es_valida(capacidad_original):
+            capacidad_gb = capacidad_original
+
+    if capacidad_gb is not None and num_modulos:
+        capacidad_calculada = capacidad_gb / num_modulos
+
+        if capacidad_es_valida(capacidad_calculada):
+            capacidad_por_modulo_gb = capacidad_calculada
+    elif not capacidad_es_valida(capacidad_por_modulo_gb):
+        capacidad_por_modulo_gb = None
 
     especificaciones_limpias = {
         "producto_id": producto_detalle.get("id"),
@@ -297,15 +354,20 @@ def validar_resultados(datos_limpios):
     assert len(datos_limpios["distribuciones"]) == 1574
 
     productos_con_id = [
-        producto for producto in datos_limpios["productos"]
+        producto
+        for producto in datos_limpios["productos"]
         if producto.get("producto_id")
     ]
 
-    assert len(productos_con_id) == len(datos_limpios["productos"])
+    assert len(productos_con_id) == len(
+        datos_limpios["productos"]
+    )
 
     assert all(
         especificacion.get("capacidad_gb") is None
-        or capacidad_es_valida(especificacion.get("capacidad_gb"))
+        or capacidad_es_valida(
+            especificacion.get("capacidad_gb")
+        )
         for especificacion in datos_limpios["especificaciones"]
     )
 
@@ -316,6 +378,15 @@ def validar_resultados(datos_limpios):
         )
         for especificacion in datos_limpios["especificaciones"]
     )
+
+    texto_completo = json.dumps(
+        datos_limpios,
+        ensure_ascii=False,
+    )
+
+    assert "Ã" not in texto_completo
+    assert "Â" not in texto_completo
+    assert "â" not in texto_completo
 
 
 def main():
