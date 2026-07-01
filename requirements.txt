@@ -4,3 +4,7 @@ beautifulsoup4
 lxml
 python-dotenv
 psycopg[binary]
+matplotlib
+seaborn
+scikit-learn
+joblib
