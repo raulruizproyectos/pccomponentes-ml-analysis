@@ -63,3 +63,81 @@ RAM_HTML_MINIMO_FICHA_BYTES = 50_000
 # HTTP generico (otros modulos del proyecto)
 REQUEST_DELAY_SECONDS = 2.0
 REQUEST_TIMEOUT_SECONDS = 30
+
+# ---------------------------------------------------------------------------
+# AWS (Fase 01: S3 + Lambda + RDS)
+# ---------------------------------------------------------------------------
+# Las credenciales y el nombre del bucket se leen de variables de entorno.
+# Ver .env.example para la plantilla.
+
+import os
+
+from dotenv import load_dotenv
+
+load_dotenv()
+
+AWS_REGION = os.getenv("AWS_REGION", "eu-west-1")
+AWS_S3_BUCKET = os.getenv("AWS_S3_BUCKET", "")
+DATABASE_URL = os.getenv("DATABASE_URL", "")
+
+# Prefijos S3 que replican la estructura local data/brutos y data/procesados
+AWS_S3_PREFIX_BRUTOS = "brutos"
+AWS_S3_PREFIX_PROCESADOS = "procesados"
+
+PROCESADOS_DATA_DIR = DATA_DIR / "procesados"
+RAM_PROCESADOS_DIR = PROCESADOS_DATA_DIR / "ram"
+
+RAM_PROCESADOS_ARCHIVOS = {
+    "productos": RAM_PROCESADOS_DIR / "productos_ram_limpios.json",
+    "especificaciones": RAM_PROCESADOS_DIR / "especificaciones_ram_limpias.json",
+    "distribuciones": RAM_PROCESADOS_DIR / "distribucion_valoraciones_ram_limpia.json",
+    "resenas": RAM_PROCESADOS_DIR / "resenas_ram_limpias.json",
+}
+
+RAM_BRUTOS_ARCHIVOS = {
+    "listado": RAM_LISTADO_JSON,
+    "detalle": RAM_DETALLE_JSON,
+}
+
+# ---------------------------------------------------------------------------
+# Tarjetas gráficas (rutas previstas; scraper pendiente)
+# ---------------------------------------------------------------------------
+
+GPU_DATA_DIR = BRUTOS_DATA_DIR / "tarjetas_graficas"
+GPU_LISTADO_JSON = GPU_DATA_DIR / "listado_tarjetas_graficas.json"
+GPU_DETALLE_JSON = GPU_DATA_DIR / "detalle_tarjetas_graficas.json"
+GPU_CATEGORIA_URL = "https://www.pccomponentes.com/tarjetas-graficas"
+
+GPU_PROCESADOS_DIR = PROCESADOS_DATA_DIR / "tarjetas_graficas"
+
+GPU_PROCESADOS_ARCHIVOS = {
+    "productos": GPU_PROCESADOS_DIR / "productos_tarjetas_graficas_limpios.json",
+    "especificaciones": GPU_PROCESADOS_DIR / "especificaciones_tarjetas_graficas_limpias.json",
+    "distribuciones": GPU_PROCESADOS_DIR / "distribucion_valoraciones_tarjetas_graficas_limpia.json",
+    "resenas": GPU_PROCESADOS_DIR / "resenas_tarjetas_graficas_limpias.json",
+}
+
+GPU_BRUTOS_ARCHIVOS = {
+    "listado": GPU_LISTADO_JSON,
+    "detalle": GPU_DETALLE_JSON,
+}
+
+# Registro unificado de categorías para pipeline local y AWS
+PIPELINE_CATEGORIAS = {
+    "ram": {
+        "slug": "ram",
+        "categoria_db": "memoria_ram",
+        "modulo_limpieza": "pipeline.limpieza_ram",
+        "brutos": RAM_BRUTOS_ARCHIVOS,
+        "procesados": RAM_PROCESADOS_ARCHIVOS,
+        "lista": True,
+    },
+    "tarjetas_graficas": {
+        "slug": "tarjetas_graficas",
+        "categoria_db": "tarjeta_grafica",
+        "modulo_limpieza": "pipeline.limpieza_gpu",
+        "brutos": GPU_BRUTOS_ARCHIVOS,
+        "procesados": GPU_PROCESADOS_ARCHIVOS,
+        "lista": False,
+    },
+}

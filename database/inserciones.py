@@ -129,6 +129,7 @@ def insertar_productos_ram(conn, data_productos):
             INSERT INTO productos (
                 producto_id,
                 url,
+                categoria,
                 modelo,
                 sku,
                 precio,
@@ -137,7 +138,7 @@ def insertar_productos_ram(conn, data_productos):
                 porcentaje_recomendacion,
                 fuente
             )
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+            VALUES (%s, %s, 'memoria_ram', %s, %s, %s, %s, %s, %s, %s)
             ON CONFLICT (producto_id) DO UPDATE SET
                 precio = EXCLUDED.precio,
                 valoracion_media = EXCLUDED.valoracion_media,
@@ -188,3 +189,37 @@ def insertar_especificaciones_ram(conn, data_especificaciones):
 def insertar_resenas_ram(conn, data_resenas):
     """Wrapper sobre insertar_resenas para claridad (usa la genérica)."""
     insertar_resenas(conn, data_resenas)
+
+
+def insertar_productos_gpu(conn, data_productos):
+    """
+    Inserta/actualiza productos de tarjetas gráficas.
+    Espera tuplas con:
+      (producto_id, url, modelo, sku, precio, valoracion_media,
+       numero_total_opiniones, porcentaje_recomendacion, fuente)
+    """
+    cursor = conn.cursor()
+    cursor.executemany(
+        query="""
+            INSERT INTO productos (
+                producto_id,
+                url,
+                categoria,
+                modelo,
+                sku,
+                precio,
+                valoracion_media,
+                numero_total_opiniones,
+                porcentaje_recomendacion,
+                fuente
+            )
+            VALUES (%s, %s, 'tarjeta_grafica', %s, %s, %s, %s, %s, %s, %s)
+            ON CONFLICT (producto_id) DO UPDATE SET
+                precio = EXCLUDED.precio,
+                valoracion_media = EXCLUDED.valoracion_media,
+                numero_total_opiniones = EXCLUDED.numero_total_opiniones,
+                porcentaje_recomendacion = EXCLUDED.porcentaje_recomendacion;
+        """,
+        params_seq=data_productos,
+    )
+    conn.commit()

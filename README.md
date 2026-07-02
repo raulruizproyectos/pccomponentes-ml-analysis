@@ -7,8 +7,8 @@ En este proyecto trabajamos con memorias RAM y tarjetas gráficas. Recogemos los
 ## Integrantes
 
 - Dani
-- Raúl
-- Andrés
+- Raúl — raul.ruiz.diaz.bcn@gmail.com
+- Andrés — andresbaptistagarces@gmail.com
 
 ## Proceso del proyecto
 
