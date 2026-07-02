@@ -34,6 +34,7 @@ En la parte de memorias RAM ya hemos realizado:
 - El análisis de los datos brutos.
 - El análisis de los datos limpios mediante consultas a PostgreSQL.
 - Un modelo de clustering para agrupar productos RAM.
+- Un análisis básico del texto de las reseñas de RAM.
 
 Actualmente tenemos:
 
@@ -68,7 +69,8 @@ pccomponentes-ml-analysis/
 │   ├── 02_eda_tarjetas_graficas.ipynb
 │   ├── 03_conexion_postgresql.ipynb
 │   ├── 04_eda_ram_datos_limpios.ipynb
-│   └── 05_preparacion_modelo_ram.ipynb
+│   ├── 05_preparacion_modelo_ram.ipynb
+│   └── 06_nlp_resenas_ram.ipynb
 ├── pipeline/
 │   ├── carga_ram_postgresql.py
 │   ├── etl_processor.py
@@ -100,6 +102,10 @@ Análisis de los datos limpios de RAM. Los datos se obtienen haciendo consultas 
 ### 05_preparacion_modelo_ram.ipynb
 
 Preparación de los datos y creación del modelo de clustering de RAM.
+
+### 06_nlp_resenas_ram.ipynb
+
+Análisis de las reseñas de RAM. Se revisan las palabras más frecuentes, los pros, los contras y la distribución de las valoraciones.
 
 ## Instalación
 
@@ -166,7 +172,7 @@ models/modelo_clustering_ram.joblib
 ## Próximos pasos
 
 - Continuar con los datos de tarjetas gráficas.
-- Analizar el texto de las reseñas.
+- Repetir el análisis de reseñas con los datos de GPU.
 - Crear la API con FastAPI.
 - Preparar la aplicación con Streamlit.
 - Conectar el proyecto con los servicios de AWS.
