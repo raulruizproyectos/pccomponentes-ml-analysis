@@ -15,26 +15,33 @@ RAIZ_PROYECTO = Path(__file__).resolve().parents[1]
 RUTA_RAM_PROCESADA = RAIZ_PROYECTO / "data" / "procesados" / "ram"
 
 
-def leer_json(nombre_archivo):
-    ruta = RUTA_RAM_PROCESADA / nombre_archivo
+def leer_json(nombre_archivo, directorio=None):
+    directorio = directorio or RUTA_RAM_PROCESADA
+    ruta = Path(directorio) / nombre_archivo
 
     with open(ruta, encoding="utf-8") as archivo:
         return json.load(archivo)
 
 
-def preparar_datos_ram_desde_json():
+def preparar_datos_ram_desde_json(directorio=None):
     return {
-        "productos": leer_json("productos_ram_limpios.json"),
-        "especificaciones": leer_json("especificaciones_ram_limpias.json"),
-        "distribuciones": leer_json(
-            "distribucion_valoraciones_ram_limpia.json"
+        "productos": leer_json("productos_ram_limpios.json", directorio),
+        "especificaciones": leer_json(
+            "especificaciones_ram_limpias.json", directorio
         ),
-        "resenas": leer_json("resenas_ram_limpias.json"),
+        "distribuciones": leer_json(
+            "distribucion_valoraciones_ram_limpia.json", directorio
+        ),
+        "resenas": leer_json("resenas_ram_limpias.json", directorio),
     }
 
 
-def cargar_ram_a_postgresql(database_uri=None, dry_run=False):
-    datos = preparar_datos_ram_desde_json()
+def cargar_ram_a_postgresql(
+    database_uri=None,
+    dry_run=False,
+    directorio_procesados=None,
+):
+    datos = preparar_datos_ram_desde_json(directorio_procesados)
 
     conteos = {
         nombre: len(registros)

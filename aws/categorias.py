@@ -93,9 +93,10 @@ def importar_modulo_limpieza(categoria: CategoriaPipeline):
 
 def obtener_cargador_etl(categoria: CategoriaPipeline) -> Callable:
     from pipeline import etl_processor
+    from pipeline.carga_ram_postgresql import cargar_ram_a_postgresql
 
     if categoria.nombre == "ram":
-        return etl_processor.cargar_ram_procesados_a_postgresql
+        return cargar_ram_a_postgresql
     if categoria.nombre == "tarjetas_graficas":
         return etl_processor.cargar_gpu_procesados_a_postgresql
 
