@@ -1,0 +1,4502 @@
+[
+    {
+        "producto_id": "gpu_0001",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0002",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0003",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0004",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0005",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0006",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0007",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0008",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0009",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0010",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0011",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0012",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0013",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0014",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0015",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0016",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0017",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0018",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0019",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0020",
+        "estrellas_5": 0,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0021",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0022",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0023",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0024",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0025",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0026",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0027",
+        "estrellas_5": 0,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0028",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0029",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0030",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0031",
+        "estrellas_5": 0,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0032",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0033",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0034",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0035",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0036",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0037",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0038",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0039",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0040",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0041",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0042",
+        "estrellas_5": 0,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0043",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0044",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0045",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0046",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0047",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0048",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0049",
+        "estrellas_5": 0,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0050",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0051",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0052",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0053",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0054",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0055",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0056",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0057",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0058",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0059",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0060",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0061",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0062",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0063",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0064",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0065",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0066",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0067",
+        "estrellas_5": 0,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0068",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0069",
+        "estrellas_5": 0,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0070",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0071",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0072",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0073",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0074",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0075",
+        "estrellas_5": 0,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0076",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0077",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0078",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0079",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0080",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0081",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0082",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0083",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0084",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0085",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0086",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0087",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0088",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0089",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0090",
+        "estrellas_5": 0,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0091",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0092",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0093",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0094",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0095",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0096",
+        "estrellas_5": 0,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0097",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0098",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0099",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0100",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0101",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0102",
+        "estrellas_5": 0,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0103",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0104",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0105",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0106",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0107",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0108",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0109",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0110",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0111",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0112",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0113",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0114",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0115",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0116",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0117",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0118",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0119",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0120",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0121",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0122",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0123",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0124",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0125",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0126",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0127",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0128",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0129",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0130",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0131",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0132",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0133",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0134",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0135",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0136",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0137",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0138",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0139",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0140",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0141",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0142",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0143",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0144",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0145",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0146",
+        "estrellas_5": 0,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0147",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0148",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0149",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0150",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0151",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0152",
+        "estrellas_5": 0,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0153",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0154",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0155",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0156",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0157",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0158",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0159",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0160",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0161",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0162",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0163",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0164",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0165",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0166",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0167",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0168",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0169",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0170",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0171",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0172",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0173",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0174",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0175",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0176",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0177",
+        "estrellas_5": 0,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0178",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0179",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0180",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0181",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0182",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0183",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0184",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0185",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0186",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0187",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0188",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0189",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0190",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0191",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0192",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0193",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0194",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0195",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0196",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0197",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0198",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0199",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0200",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0201",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0202",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0203",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0204",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0205",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0206",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0207",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0208",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0209",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0210",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0211",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0212",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0213",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0214",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0215",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0216",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0217",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0218",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0219",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0220",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0221",
+        "estrellas_5": 0,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0222",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0223",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0224",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0225",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0226",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0227",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0228",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0229",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0230",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0231",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0232",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0233",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0234",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0235",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0236",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0237",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0238",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0239",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0240",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0241",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0242",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0243",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0244",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0245",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0246",
+        "estrellas_5": 0,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0247",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0248",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0249",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0250",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0251",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0252",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0253",
+        "estrellas_5": 0,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0254",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0255",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0256",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0257",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0258",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0259",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0260",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0261",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0262",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0263",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0264",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0265",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0266",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0267",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0268",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0269",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0270",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0271",
+        "estrellas_5": 0,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0272",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0273",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0274",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0275",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0276",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0277",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0278",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0279",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0280",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0281",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0282",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0283",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0284",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0285",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0286",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0287",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0288",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0289",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0290",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0291",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0292",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0293",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0294",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0295",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0296",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0297",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0298",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0299",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0300",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0301",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0302",
+        "estrellas_5": 0,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0303",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0304",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0305",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0306",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0307",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0308",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0309",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0310",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0311",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0312",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0313",
+        "estrellas_5": 0,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0314",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0315",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0316",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0317",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0318",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0319",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0320",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0321",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0322",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0323",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0324",
+        "estrellas_5": 0,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0325",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0326",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0327",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0328",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0329",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0330",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0331",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0332",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0333",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0334",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0335",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0336",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0337",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0338",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0339",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0340",
+        "estrellas_5": 0,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0341",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0342",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0343",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0344",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0345",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0346",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0347",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0348",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0349",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0350",
+        "estrellas_5": 0,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0351",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0352",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0353",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0354",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0355",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0356",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0357",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0358",
+        "estrellas_5": 0,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0359",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0360",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0361",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0362",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0363",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0364",
+        "estrellas_5": 0,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0365",
+        "estrellas_5": 0,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0366",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0367",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0368",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0369",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0370",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0371",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0372",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0373",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0374",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0375",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0376",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0377",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0378",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0379",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0380",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0381",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0382",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0383",
+        "estrellas_5": 0,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0384",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0385",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0386",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0387",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0388",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0389",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0390",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0391",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0392",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0393",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0394",
+        "estrellas_5": 0,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0395",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0396",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0397",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0398",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0399",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0400",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0401",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0402",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0403",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0404",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0405",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0406",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0407",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0408",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0409",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0410",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0411",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0412",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0413",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0414",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0415",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0416",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0417",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0418",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0419",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0420",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0421",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0422",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0423",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0424",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0425",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0426",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0427",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0428",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0429",
+        "estrellas_5": 0,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0430",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0431",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0432",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0433",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0434",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0435",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0436",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0437",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0438",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0439",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0440",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0441",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0442",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0443",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0444",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0445",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0446",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0447",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0448",
+        "estrellas_5": 0,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0449",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0450",
+        "estrellas_5": 0,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0451",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0452",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0453",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0454",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0455",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0456",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0457",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0458",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0459",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0460",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0461",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0462",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0463",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0464",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0465",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0466",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0467",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0468",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0469",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0470",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0471",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0472",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0473",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0474",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0475",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0476",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0477",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0478",
+        "estrellas_5": 0,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0479",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0480",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0481",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0482",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0483",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0484",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0485",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0486",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0487",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0488",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0489",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0490",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0491",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0492",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0493",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0494",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0495",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0496",
+        "estrellas_5": 1,
+        "estrellas_4": 0,
+        "estrellas_3": 0,
+        "estrellas_2": 0,
+        "estrellas_1": 0,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0497",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0498",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0499",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    },
+    {
+        "producto_id": "gpu_0500",
+        "estrellas_5": 1,
+        "estrellas_4": 1,
+        "estrellas_3": 1,
+        "estrellas_2": 1,
+        "estrellas_1": 1,
+        "fuente_desglose": "media_threshold_classification"
+    }
+]
