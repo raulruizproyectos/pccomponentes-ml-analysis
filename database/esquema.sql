@@ -69,6 +69,17 @@ CREATE TABLE IF NOT EXISTS resenas (
     numero_respuestas INT
 );
 
+CREATE TABLE IF NOT EXISTS resenas_gpu (
+    resena_id VARCHAR(50) PRIMARY KEY,
+    producto_id VARCHAR(30) NOT NULL
+        REFERENCES productos(producto_id)
+        ON DELETE CASCADE,
+    fecha_resena_texto TEXT,
+    texto_resena TEXT NOT NULL,
+    pros TEXT,
+    contras TEXT
+);
+
 CREATE TABLE IF NOT EXISTS especificaciones_gpu (
     producto_id VARCHAR(30) PRIMARY KEY
         REFERENCES productos(producto_id)
@@ -97,6 +108,19 @@ CREATE TABLE IF NOT EXISTS resultados_clustering_ram (
 CREATE TABLE IF NOT EXISTS resultados_sentimiento (
     resena_id VARCHAR(50) PRIMARY KEY
         REFERENCES resenas(resena_id)
+        ON DELETE CASCADE,
+    estrellas_predichas INT NOT NULL
+        CHECK (estrellas_predichas BETWEEN 1 AND 5),
+    sentimiento VARCHAR(10) NOT NULL
+        CHECK (sentimiento IN ('negativo', 'neutral', 'positivo')),
+    confianza NUMERIC(6, 5) NOT NULL
+        CHECK (confianza >= 0 AND confianza <= 1),
+    modelo VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS resultados_sentimiento_gpu (
+    resena_id VARCHAR(50) PRIMARY KEY
+        REFERENCES resenas_gpu(resena_id)
         ON DELETE CASCADE,
     estrellas_predichas INT NOT NULL
         CHECK (estrellas_predichas BETWEEN 1 AND 5),

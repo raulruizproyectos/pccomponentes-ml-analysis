@@ -108,3 +108,28 @@ def insertar_distribucion_valoraciones_gpu(conn, data_distribuciones):
             """,
             data_distribuciones,
         )
+
+
+def insertar_resenas_gpu(conn, data_resenas):
+    with conn.cursor() as cursor:
+        cursor.executemany(
+            """
+            INSERT INTO resenas_gpu (
+                resena_id,
+                producto_id,
+                fecha_resena_texto,
+                texto_resena,
+                pros,
+                contras
+            )
+            VALUES (
+                %(resena_id)s,
+                %(producto_id)s,
+                %(fecha_resena_texto)s,
+                %(texto_resena)s,
+                %(pros)s,
+                %(contras)s
+            );
+            """,
+            data_resenas,
+        )

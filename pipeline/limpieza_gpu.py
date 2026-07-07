@@ -1,7 +1,7 @@
-# Limpieza de datos de tarjetas graficas.
+﻿# Limpieza de datos de tarjetas graficas.
 # Lee el JSON de GPU ya preprocesado por IA y lo adapta al esquema comun del proyecto.
-# Genera productos, especificaciones y distribucion de valoraciones para PostgreSQL.
-# Las resenas GPU se dejan fuera por ahora porque no incluyen valoracion individual.
+# Genera productos, especificaciones, distribucion de valoraciones y resenas GPU para PostgreSQL.
+# Las resenas GPU no incluyen valoracion individual, por eso se guardan en una tabla propia.
 
 import json
 from pathlib import Path
@@ -90,23 +90,64 @@ def limpiar_distribucion_valoraciones(producto):
     }
 
 
+def obtener_por_indice(lista, indice):
+    if isinstance(lista, list) and indice < len(lista):
+        return lista[indice]
+    return None
+
+
+def limpiar_resenas(producto):
+    textos = producto.get("texto_resena") or []
+    fechas = producto.get("fecha_reseña_texto") or producto.get("fecha_reseÃ±a_texto") or producto.get("fecha_reseÃƒÂ±a_texto") or []
+    pros = producto.get("pros") or []
+    contras = producto.get("contras") or []
+
+    resenas = []
+
+    for indice, texto in enumerate(textos, start=1):
+        if not texto:
+            continue
+
+        pro = obtener_por_indice(pros, indice - 1) if len(pros) == len(textos) else None
+        contra = obtener_por_indice(contras, indice - 1) if len(contras) == len(textos) else None
+
+        if pro == texto:
+            pro = None
+
+        if contra == texto:
+            contra = None
+
+        resenas.append({
+            "resena_id": f"{producto_id_gpu(producto)}_{indice}",
+            "producto_id": producto_id_gpu(producto),
+            "fecha_resena_texto": obtener_por_indice(fechas, indice - 1),
+            "texto_resena": texto,
+            "pros": pro,
+            "contras": contra,
+        })
+
+    return resenas
+
+
 def preparar_datos_limpios():
     productos_originales = leer_json(RUTA_DATOS)
 
     productos = []
     especificaciones = []
     distribuciones = []
+    resenas = []
 
     for posicion, producto in enumerate(productos_originales, start=1):
         productos.append(limpiar_producto(producto, posicion))
         especificaciones.append(limpiar_especificaciones(producto))
         distribuciones.append(limpiar_distribucion_valoraciones(producto))
+        resenas.extend(limpiar_resenas(producto))
 
     return {
         "productos": productos,
         "especificaciones": especificaciones,
         "distribuciones": distribuciones,
-        "resenas": [],
+        "resenas": resenas,
     }
 
 
@@ -114,6 +155,7 @@ def validar_resultados(datos_limpios):
     assert len(datos_limpios["productos"]) == 500
     assert len(datos_limpios["especificaciones"]) == 500
     assert len(datos_limpios["distribuciones"]) == 500
+    assert len(datos_limpios["resenas"]) == 3564
 
     ids = [producto["producto_id"] for producto in datos_limpios["productos"]]
     urls = [producto["url"] for producto in datos_limpios["productos"]]

@@ -7,6 +7,7 @@ from database.inserciones_gpu import (
     insertar_distribucion_valoraciones_gpu,
     insertar_especificaciones_gpu,
     insertar_productos_gpu,
+    insertar_resenas_gpu,
 )
 
 
@@ -31,6 +32,10 @@ def preparar_datos_gpu_desde_json(directorio=None):
         ),
         "distribuciones": leer_json(
             "distribucion_valoraciones_tarjetas_graficas_limpia.json",
+            directorio,
+        ),
+        "resenas": leer_json(
+            "resenas_tarjetas_graficas_limpias.json",
             directorio,
         ),
     }
@@ -60,7 +65,7 @@ def cargar_gpu_a_postgresql(
         insertar_productos_gpu(conn, datos["productos"])
         insertar_especificaciones_gpu(conn, datos["especificaciones"])
         insertar_distribucion_valoraciones_gpu(conn, datos["distribuciones"])
-
+        insertar_resenas_gpu(conn, datos["resenas"])
         conn.commit()
 
     return conteos
