@@ -106,3 +106,12 @@ CREATE TABLE IF NOT EXISTS resultados_sentimiento (
         CHECK (confianza >= 0 AND confianza <= 1),
     modelo VARCHAR(100) NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS resultados_clustering_gpu (
+    producto_id VARCHAR(30) PRIMARY KEY
+        REFERENCES productos(producto_id)
+        ON DELETE CASCADE,
+    grupo INT NOT NULL
+        CHECK (grupo IN (0, 1, 2)),
+    nombre_grupo VARCHAR(50) NOT NULL
+);

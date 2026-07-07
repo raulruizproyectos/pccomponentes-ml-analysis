@@ -55,12 +55,21 @@ En la parte de tarjetas gráficas ya hemos realizado:
 - La limpieza y adaptación al esquema común del proyecto.
 - La generación de archivos procesados.
 - La carga en PostgreSQL de productos, especificaciones y distribuciones de valoraciones.
+- Un modelo de clustering para agrupar tarjetas gráficas.
+- El guardado de los resultados de clustering GPU en PostgreSQL.
 
 Actualmente tenemos para GPU:
 
 - 500 productos.
 - 500 registros de especificaciones.
 - 500 distribuciones de valoraciones.
+- 500 resultados de clustering.
+
+El modelo de clustering separa las tarjetas gráficas en tres grupos:
+
+- Alta gama.
+- Gama media.
+- Ficha incompleta.
 
 Las reseñas de GPU quedan pendientes porque el JSON contiene textos, pero no valoración individual por reseña.
 
@@ -87,7 +96,8 @@ pccomponentes-ml-analysis/
 │   ├── 04_eda_ram_datos_limpios.ipynb
 │   ├── 05_preparacion_modelo_ram.ipynb
 │   ├── 06_nlp_resenas_ram.ipynb
-│   └── 07_sentimiento_resenas_ram.ipynb
+│   ├── 07_sentimiento_resenas_ram.ipynb
+│   └── 08_preparacion_modelo_gpu.ipynb
 ├── pipeline/
 │   ├── carga_gpu_postgresql.py
 │   ├── carga_ram_postgresql.py
@@ -129,6 +139,10 @@ Análisis de las reseñas de RAM. Se revisan las palabras más frecuentes, los p
 ### 07_sentimiento_resenas_ram.ipynb
 
 Análisis de sentimiento de las reseñas de RAM y guardado de los resultados en PostgreSQL.
+
+### 08_preparacion_modelo_gpu.ipynb
+
+Preparación de los datos y creación del modelo de clustering de tarjetas gráficas.
 
 ## Instalación
 
@@ -196,9 +210,10 @@ Las tablas utilizadas son:
 - `distribucion_valoraciones`
 - `resenas`
 - `resultados_clustering_ram`
+- `resultados_clustering_gpu`
 - `resultados_sentimiento`
 
-## Modelo de clustering
+## Modelos de clustering
 
 El modelo agrupa las memorias RAM utilizando estas características:
 
@@ -212,6 +227,22 @@ El modelo creado se guarda en:
 
 ```text
 models/modelo_clustering_ram.joblib
+```
+
+El modelo de tarjetas gráficas utiliza variables como:
+
+- Precio.
+- Valoración media.
+- Total de opiniones.
+- Porcentaje de recomendación.
+- Memoria VRAM.
+- Bus de memoria.
+- Tipo de memoria.
+
+Los resultados del clustering GPU se guardan en PostgreSQL en la tabla:
+
+```text
+resultados_clustering_gpu
 ```
 
 ## Próximos pasos
