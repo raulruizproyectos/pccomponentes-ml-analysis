@@ -9,3 +9,5 @@ seaborn
 scikit-learn
 joblib
 boto3
+torch
+transformers
