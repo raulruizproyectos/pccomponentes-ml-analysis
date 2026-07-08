@@ -11,3 +11,5 @@ joblib
 boto3
 torch
 transformers
+fastapi
+uvicorn
