@@ -1,253 +1,335 @@
 # PCComponentes ML Analysis
 
-Proyecto para recoger y analizar datos de componentes de PCComponentes.
+Proyecto para recoger, limpiar, guardar y analizar datos de componentes de PCComponentes.
 
-En este proyecto trabajamos con memorias RAM y tarjetas gráficas. Recogemos los datos, los limpiamos, los guardamos en PostgreSQL y después los utilizamos para hacer análisis y modelos de Machine Learning.
+Trabajamos con memorias RAM y tarjetas graficas. Los datos se limpian, se guardan en PostgreSQL y se utilizan para analisis exploratorio, clustering y analisis de sentimiento.
 
 ## Integrantes
 
 - Dani
-- Raúl
-- Andrés
+- Raul
+- Andres
 
-## Proceso del proyecto
+## Flujo del proyecto
 
-Los pasos que seguimos son:
-
-1. Extraer los datos de PCComponentes.
-2. Guardar los datos brutos en archivos JSON.
-3. Limpiar los datos.
-4. Guardar los datos limpios en PostgreSQL.
+1. Extraer datos de PcComponentes.
+2. Guardar los datos brutos en JSON.
+3. Limpiar y adaptar los datos.
+4. Cargar los datos limpios en PostgreSQL.
 5. Analizar los datos con notebooks.
-6. Preparar los datos para los modelos.
-7. Entrenar y guardar los modelos.
+6. Generar modelos y resultados.
+7. Guardar los resultados de modelos en PostgreSQL.
+8. Consumir los datos desde FastAPI y Streamlit.
 
 ## Estado actual
 
-En la parte de memorias RAM ya hemos realizado:
+### RAM
 
-- La extracción de productos, características y reseñas.
-- La limpieza de los datos.
-- La creación de las tablas de PostgreSQL.
-- La carga de los datos limpios en PostgreSQL.
-- El análisis de los datos brutos y limpios.
-- Un modelo de clustering para agrupar productos RAM.
-- El análisis de sentimiento de las reseñas de RAM.
-- El guardado de resultados de sentimiento en PostgreSQL.
+Completado:
 
-Actualmente tenemos para RAM:
+- Extraccion de productos, especificaciones y resenas.
+- Limpieza de datos.
+- Carga en PostgreSQL.
+- EDA de datos brutos y limpios.
+- Clustering con K-Means.
+- Guardado de clustering en PostgreSQL.
+- Analisis de sentimiento con Hugging Face.
+- Guardado de sentimiento en PostgreSQL.
 
-- 1646 productos.
-- 1574 registros de características.
-- 1574 distribuciones de valoraciones.
-- 5876 reseñas.
-- 5876 resultados de sentimiento.
+Conteos actuales:
 
-El modelo de clustering separa las memorias RAM en tres grupos:
+- Productos: 1646.
+- Especificaciones: 1574.
+- Distribuciones de valoraciones: 1574.
+- Resenas: 5876.
+- Resultados de sentimiento: 5876.
 
-- RAM básica.
-- DDR5 estándar.
-- DDR5 de alta capacidad.
+Tablas principales:
 
-En la parte de tarjetas gráficas ya hemos realizado:
+- `productos`
+- `especificaciones_ram`
+- `distribucion_valoraciones`
+- `resenas`
+- `resultados_clustering_ram`
+- `resultados_sentimiento`
 
-- La incorporación del JSON de GPU preprocesado por IA.
-- La limpieza y adaptación al esquema común del proyecto.
-- La generación de archivos procesados.
-- La carga en PostgreSQL de productos, especificaciones y distribuciones de valoraciones.
-- Un modelo de clustering para agrupar tarjetas gráficas.
-- El guardado de los resultados de clustering GPU en PostgreSQL.
+### GPU
 
-Actualmente tenemos para GPU:
+Completado:
 
-- 500 productos.
-- 500 registros de especificaciones.
-- 500 distribuciones de valoraciones.
-- 500 resultados de clustering.
+- Incorporacion del JSON de GPU preprocesado por IA.
+- Limpieza y adaptacion al esquema del proyecto.
+- Generacion de archivos procesados.
+- Carga en PostgreSQL.
+- Extraccion y carga de resenas GPU.
+- Clustering con K-Means.
+- Guardado de clustering en PostgreSQL.
+- Analisis de sentimiento con Hugging Face.
+- Guardado de sentimiento en PostgreSQL.
 
-El modelo de clustering separa las tarjetas gráficas en tres grupos:
+Conteos actuales:
 
-- Alta gama.
-- Gama media.
-- Ficha incompleta.
+- Productos: 500.
+- Especificaciones: 500.
+- Distribuciones de valoraciones: 500.
+- Resenas GPU: 3564.
+- Resultados de clustering: 500.
+- Resultados de sentimiento: 3564.
 
-Las reseñas de GPU quedan pendientes porque el JSON contiene textos, pero no valoración individual por reseña.
+Tablas principales:
+
+- `productos`
+- `especificaciones_gpu`
+- `distribucion_valoraciones`
+- `resenas_gpu`
+- `resultados_clustering_gpu`
+- `resultados_sentimiento_gpu`
+
+Grupos de clustering GPU:
+
+- `alta_gama`: 137 productos.
+- `gama_media`: 198 productos.
+- `ficha_incompleta`: 165 productos.
+
+Las resenas GPU se guardan en `resenas_gpu` porque no incluyen valoracion individual por resena.
 
 ## Estructura principal
 
 ```text
 pccomponentes-ml-analysis/
-├── data/
-│   ├── brutos/
-│   └── procesados/
-├── database/
-│   ├── conexion.py
-│   ├── esquema.sql
-│   ├── inserciones.py
-│   ├── inserciones_gpu.py
-│   └── inserciones_ram.py
-├── docs/
-├── models/
-│   └── modelo_clustering_ram.joblib
-├── notebooks/
-│   ├── 01_eda_ram.ipynb
-│   ├── 02_eda_tarjetas_graficas.ipynb
-│   ├── 03_conexion_postgresql.ipynb
-│   ├── 04_eda_ram_datos_limpios.ipynb
-│   ├── 05_preparacion_modelo_ram.ipynb
-│   ├── 06_nlp_resenas_ram.ipynb
-│   ├── 07_sentimiento_resenas_ram.ipynb
-│   └── 08_preparacion_modelo_gpu.ipynb
-├── pipeline/
-│   ├── carga_gpu_postgresql.py
-│   ├── carga_ram_postgresql.py
-│   ├── etl_processor.py
-│   ├── limpieza_gpu.py
-│   └── limpieza_ram.py
-├── scrapers/
-├── ejecutar_scraper.py
-├── requirements.txt
-└── README.md
+|-- api/
+|-- aws/
+|-- comun/
+|-- config/
+|-- data/
+|   |-- brutos/
+|   `-- procesados/
+|-- database/
+|-- docs/
+|-- models/
+|-- notebooks/
+|   |-- 01_eda_ram.ipynb
+|   |-- 02_eda_tarjetas_graficas.ipynb
+|   |-- 03_conexion_postgresql.ipynb
+|   |-- 04_eda_ram_datos_limpios.ipynb
+|   |-- 05_preparacion_modelo_ram.ipynb
+|   |-- 06_nlp_resenas_ram.ipynb
+|   |-- 07_sentimiento_resenas_ram.ipynb
+|   |-- 08_preparacion_modelo_gpu.ipynb
+|   |-- 09_sentimiento_resenas_gpu.ipynb
+|   |-- base_de_datos_tgraf.ipynb
+|   |-- limpieza_tgraf.ipynb
+|   `-- scraping_tgraf.ipynb
+|-- pipeline/
+|-- scrapers/
+|-- streamlit_app/
+|-- ejecutar_aws.py
+|-- ejecutar_scraper.py
+|-- requirements.txt
+`-- README.md
 ```
 
 ## Notebooks
 
 ### 01_eda_ram.ipynb
 
-Análisis inicial de los datos brutos de memorias RAM.
+Analisis inicial de los datos brutos de RAM.
 
 ### 02_eda_tarjetas_graficas.ipynb
 
-Notebook para analizar los datos de tarjetas gráficas.
+Analisis inicial de tarjetas graficas.
 
 ### 03_conexion_postgresql.ipynb
 
-Pruebas de conexión con PostgreSQL.
+Pruebas de conexion con PostgreSQL.
 
 ### 04_eda_ram_datos_limpios.ipynb
 
-Análisis de los datos limpios de RAM. Los datos se obtienen haciendo consultas a PostgreSQL.
+Analisis de datos limpios de RAM desde PostgreSQL.
 
 ### 05_preparacion_modelo_ram.ipynb
 
-Preparación de los datos y creación del modelo de clustering de RAM.
+Preparacion de datos y clustering de RAM.
 
 ### 06_nlp_resenas_ram.ipynb
 
-Análisis de las reseñas de RAM. Se revisan las palabras más frecuentes, los pros, los contras y la distribución de las valoraciones.
+Analisis exploratorio de resenas RAM.
 
 ### 07_sentimiento_resenas_ram.ipynb
 
-Análisis de sentimiento de las reseñas de RAM y guardado de los resultados en PostgreSQL.
+Analisis de sentimiento de resenas RAM y guardado en PostgreSQL.
 
 ### 08_preparacion_modelo_gpu.ipynb
 
-Preparación de los datos y creación del modelo de clustering de tarjetas gráficas.
+Preparacion de datos y clustering de tarjetas graficas.
 
-## Instalación
+### 09_sentimiento_resenas_gpu.ipynb
 
-Para instalar las librerías necesarias:
+Analisis de sentimiento de resenas GPU y guardado en PostgreSQL.
 
-```powershell
-pip install -r requirements.txt
-```
+### Notebooks GPU auxiliares
 
-También es necesario tener PostgreSQL instalado y crear la base de datos del proyecto.
+Estos notebooks proceden del trabajo previo de GPU y se conservan por trazabilidad:
 
-## Limpieza de los datos RAM
-
-Para volver a generar los archivos limpios:
-
-```powershell
-python -B pipeline/limpieza_ram.py
-```
-
-Los archivos se guardan en:
-
-```text
-data/procesados/ram/
-```
-
-## Limpieza de los datos GPU
-
-Para volver a generar los archivos limpios de tarjetas gráficas:
-
-```powershell
-python -B pipeline/limpieza_gpu.py
-```
-
-Los archivos se guardan en:
-
-```text
-data/procesados/tarjetas_graficas/
-```
+- `base_de_datos_tgraf.ipynb`
+- `limpieza_tgraf.ipynb`
+- `scraping_tgraf.ipynb`
 
 ## Base de datos
 
-El esquema de PostgreSQL está en:
+El esquema principal esta en:
 
 ```text
 database/esquema.sql
 ```
 
-La carga de los datos de RAM se realiza desde:
+Archivos de insercion:
 
-```text
-pipeline/carga_ram_postgresql.py
-```
+- `database/inserciones_ram.py`
+- `database/inserciones_gpu.py`
 
-La carga de los datos de GPU se realiza desde:
-
-```text
-pipeline/carga_gpu_postgresql.py
-```
-
-Las tablas utilizadas son:
+Tablas principales:
 
 - `productos`
 - `especificaciones_ram`
 - `especificaciones_gpu`
 - `distribucion_valoraciones`
 - `resenas`
+- `resenas_gpu`
 - `resultados_clustering_ram`
 - `resultados_clustering_gpu`
 - `resultados_sentimiento`
+- `resultados_sentimiento_gpu`
 
-## Modelos de clustering
+## Pipeline
 
-El modelo agrupa las memorias RAM utilizando estas características:
+Limpieza RAM:
 
-- Precio.
-- Capacidad.
-- Frecuencia.
-- Latencia.
-- Tipo de memoria.
-
-El modelo creado se guarda en:
-
-```text
-models/modelo_clustering_ram.joblib
+```powershell
+python -B pipeline/limpieza_ram.py
 ```
 
-El modelo de tarjetas gráficas utiliza variables como:
-
-- Precio.
-- Valoración media.
-- Total de opiniones.
-- Porcentaje de recomendación.
-- Memoria VRAM.
-- Bus de memoria.
-- Tipo de memoria.
-
-Los resultados del clustering GPU se guardan en PostgreSQL en la tabla:
+Carga RAM a PostgreSQL:
 
 ```text
-resultados_clustering_gpu
+pipeline/carga_ram_postgresql.py
 ```
 
-## Próximos pasos
+Limpieza GPU:
 
-- Decidir cómo tratar las reseñas de GPU sin valoración individual.
-- Crear la API con FastAPI.
-- Preparar la aplicación con Streamlit.
-- Conectar el proyecto con los servicios de AWS.
+```powershell
+python -B pipeline/limpieza_gpu.py
+```
+
+Carga GPU a PostgreSQL:
+
+```text
+pipeline/carga_gpu_postgresql.py
+```
+
+## Modelos
+
+### Clustering
+
+RAM y GPU usan K-Means para agrupar productos segun variables numericas y categoricas preparadas.
+
+Los resultados se guardan en PostgreSQL para no ejecutar el modelo en cada consulta.
+
+Tablas:
+
+- `resultados_clustering_ram`
+- `resultados_clustering_gpu`
+
+### Sentimiento
+
+Modelo utilizado:
+
+```text
+nlptown/bert-base-multilingual-uncased-sentiment
+```
+
+Tablas:
+
+- `resultados_sentimiento`
+- `resultados_sentimiento_gpu`
+
+## AWS
+
+La carpeta `aws/` contiene la estructura para trabajar con S3, RDS y Lambda.
+
+Archivos relevantes:
+
+- `aws/categorias.py`
+- `aws/infra_rds.py`
+- `aws/infra_s3.py`
+- `aws/lambda_handler.py`
+- `aws/orquestador.py`
+- `aws/s3_client.py`
+
+Pendiente:
+
+- Validar RDS.
+- Validar S3.
+- Controlar ejecucion de Lambda.
+- Ejecutar cargas reales solo con autorizacion.
+
+## FastAPI
+
+La carpeta `api/` esta preparada, pero la API todavia no esta desarrollada.
+
+FastAPI debera consultar PostgreSQL y exponer endpoints para:
+
+- Estado del servicio.
+- Productos.
+- Especificaciones.
+- Clustering RAM/GPU.
+- Sentimiento RAM/GPU.
+- Datos agregados para graficas.
+- Recomendacion mediante filtros y ranking SQL.
+
+## Streamlit
+
+La carpeta `streamlit_app/` esta preparada, pero la app todavia no esta desarrollada.
+
+Streamlit debera consumir FastAPI, no conectarse directamente a PostgreSQL.
+
+Vistas recomendadas:
+
+- Resumen general.
+- Filtros de productos.
+- Comparativas RAM/GPU.
+- Graficas de clustering.
+- Graficas de sentimiento.
+- Tabla de productos recomendados.
+- Ficha de producto.
+
+## Instalacion
+
+Instalar dependencias:
+
+```powershell
+pip install -r requirements.txt
+```
+
+Dependencias principales:
+
+- `pandas`
+- `psycopg[binary]`
+- `matplotlib`
+- `seaborn`
+- `scikit-learn`
+- `joblib`
+- `boto3`
+- `torch`
+- `transformers`
+
+FastAPI, Uvicorn y Streamlit se anadiran cuando se desarrolle esa parte.
+
+## Proximos pasos
+
+1. Revisar la estructura existente de `api/`.
+2. Crear FastAPI y conectar con PostgreSQL.
+3. Crear endpoints para productos, clustering y sentimiento.
+4. Crear Streamlit consumiendo FastAPI.
+5. Validar AWS/RDS/S3/Lambda.
+6. Preparar revision final y presentacion.
