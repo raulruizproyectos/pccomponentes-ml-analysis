@@ -28,8 +28,11 @@ def ejecutar_limpieza_local(
     limpieza = importar_modulo_limpieza(categoria)
 
     if rutas_brutos:
-        limpieza.RUTA_LISTADO = rutas_brutos["listado"]
-        limpieza.RUTA_DETALLE = rutas_brutos["detalle"]
+        if categoria.lista:
+            limpieza.RUTA_LISTADO = rutas_brutos["listado"]
+            limpieza.RUTA_DETALLE = rutas_brutos["detalle"]
+        else:
+            limpieza.RUTA_DATOS = rutas_brutos["dataset"]
 
     directorio_procesados = directorio_salida or categoria.procesados["productos"].parent
     limpieza.RUTA_SALIDA = directorio_procesados
@@ -82,6 +85,13 @@ def ejecutar_pipeline_local(
 
 
 def procesar_objeto_s3(bucket: str, clave: str, database_url: str) -> dict:
+    if clave.endswith(".keep"):
+        return {
+            "clave": clave,
+            "estado": "omitido",
+            "motivo": "marcador de prefijo",
+        }
+
     categoria = identificar_categoria_por_clave_s3(clave)
     if categoria is None:
         return {
@@ -103,7 +113,7 @@ def procesar_objeto_s3(bucket: str, clave: str, database_url: str) -> dict:
                 directorio_salida=base / "procesados" / categoria.slug,
             )
         elif es_clave_procesados(clave, categoria):
-            cliente.descargar_procesados(categoria, base / "procesados")
+            cliente.descargar_procesados_etl(categoria, base / "procesados")
             directorio_procesados = base / "procesados" / categoria.slug
         else:
             return {
@@ -113,12 +123,24 @@ def procesar_objeto_s3(bucket: str, clave: str, database_url: str) -> dict:
                 "motivo": "tipo de objeto no reconocido",
             }
 
-        resultado = ejecutar_etl_local(
-            categoria,
-            database_url,
-            directorio_procesados=directorio_procesados,
-            dry_run=False,
-        )
+        try:
+            resultado = ejecutar_etl_local(
+                categoria,
+                database_url,
+                directorio_procesados=directorio_procesados,
+                dry_run=False,
+            )
+        except Exception as error:
+            mensaje = str(error)
+            if "duplicate key" in mensaje.lower():
+                return {
+                    "clave": clave,
+                    "categoria": categoria.nombre,
+                    "estado": "omitido",
+                    "motivo": "datos ya cargados en PostgreSQL",
+                    "detalle": mensaje,
+                }
+            raise
 
         return {
             "clave": clave,

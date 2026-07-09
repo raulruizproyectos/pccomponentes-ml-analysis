@@ -104,6 +104,7 @@ RAM_BRUTOS_ARCHIVOS = {
 # ---------------------------------------------------------------------------
 
 GPU_DATA_DIR = BRUTOS_DATA_DIR / "tarjetas_graficas"
+GPU_DATASET_JSON = GPU_DATA_DIR / "tarjetas_graficas.json"
 GPU_LISTADO_JSON = GPU_DATA_DIR / "listado_tarjetas_graficas.json"
 GPU_DETALLE_JSON = GPU_DATA_DIR / "detalle_tarjetas_graficas.json"
 GPU_CATEGORIA_URL = "https://www.pccomponentes.com/tarjetas-graficas"
@@ -111,6 +112,7 @@ GPU_CATEGORIA_URL = "https://www.pccomponentes.com/tarjetas-graficas"
 GPU_PROCESADOS_DIR = PROCESADOS_DATA_DIR / "tarjetas_graficas"
 
 GPU_PROCESADOS_ARCHIVOS = {
+    "dataset": GPU_PROCESADOS_DIR / "tarjetas_graficas.json",
     "productos": GPU_PROCESADOS_DIR / "productos_tarjetas_graficas_limpios.json",
     "especificaciones": GPU_PROCESADOS_DIR / "especificaciones_tarjetas_graficas_limpias.json",
     "distribuciones": GPU_PROCESADOS_DIR / "distribucion_valoraciones_tarjetas_graficas_limpia.json",
@@ -118,8 +120,7 @@ GPU_PROCESADOS_ARCHIVOS = {
 }
 
 GPU_BRUTOS_ARCHIVOS = {
-    "listado": GPU_LISTADO_JSON,
-    "detalle": GPU_DETALLE_JSON,
+    "dataset": GPU_DATASET_JSON,
 }
 
 # Registro unificado de categorías para pipeline local y AWS

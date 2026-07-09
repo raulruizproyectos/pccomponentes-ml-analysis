@@ -13,6 +13,7 @@ from botocore.exceptions import ClientError
 
 from aws.categorias import (
     CategoriaPipeline,
+    archivos_procesados_etl,
     clave_s3_brutos,
     clave_s3_procesados,
     listar_categorias,
@@ -55,7 +56,15 @@ class ClienteS3:
     def descargar_archivo(self, clave_s3: str, ruta_destino: Path) -> Path:
         ruta_destino = Path(ruta_destino)
         ruta_destino.parent.mkdir(parents=True, exist_ok=True)
-        self._cliente.download_file(self.bucket, clave_s3, str(ruta_destino))
+        try:
+            self._cliente.download_file(self.bucket, clave_s3, str(ruta_destino))
+        except ClientError as error:
+            codigo = error.response["Error"].get("Code", "")
+            if codigo in {"404", "NoSuchKey", "NotFound"}:
+                raise FileNotFoundError(
+                    f"No existe en S3: s3://{self.bucket}/{clave_s3}"
+                ) from error
+            raise
         return ruta_destino
 
     def existe(self, clave_s3: str) -> bool:
@@ -160,6 +169,18 @@ class ClienteS3:
         return self.descargar_conjunto(
             categoria,
             categoria.procesados,
+            directorio_destino,
+            tipo="procesados",
+        )
+
+    def descargar_procesados_etl(
+        self,
+        categoria: CategoriaPipeline,
+        directorio_destino: Path,
+    ) -> dict[str, Path]:
+        return self.descargar_conjunto(
+            categoria,
+            archivos_procesados_etl(categoria),
             directorio_destino,
             tipo="procesados",
         )

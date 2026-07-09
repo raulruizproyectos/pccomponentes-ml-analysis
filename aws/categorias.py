@@ -91,13 +91,24 @@ def importar_modulo_limpieza(categoria: CategoriaPipeline):
     return import_module(categoria.modulo_limpieza)
 
 
+PROCESADOS_ETL_KEYS = ("productos", "especificaciones", "distribuciones", "resenas")
+
+
+def archivos_procesados_etl(categoria: CategoriaPipeline) -> dict[str, Path]:
+    return {
+        nombre: ruta
+        for nombre, ruta in categoria.procesados.items()
+        if nombre in PROCESADOS_ETL_KEYS
+    }
+
+
 def obtener_cargador_etl(categoria: CategoriaPipeline) -> Callable:
-    from pipeline import etl_processor
+    from pipeline.carga_gpu_postgresql import cargar_gpu_a_postgresql
     from pipeline.carga_ram_postgresql import cargar_ram_a_postgresql
 
     if categoria.nombre == "ram":
         return cargar_ram_a_postgresql
     if categoria.nombre == "tarjetas_graficas":
-        return etl_processor.cargar_gpu_procesados_a_postgresql
+        return cargar_gpu_a_postgresql
 
     raise ValueError(f"Sin cargador ETL para la categoría: {categoria.nombre}")

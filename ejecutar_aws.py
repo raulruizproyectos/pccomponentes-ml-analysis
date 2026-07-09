@@ -12,6 +12,9 @@ Comandos:
     pipeline      Ejecuta limpieza + carga a PostgreSQL.
     probar-db     Prueba conexión a PostgreSQL RDS.
     aplicar-esquema  Crea tablas en RDS desde database/esquema.sql.
+    desplegar-lambda Crea/actualiza Lambda ETL + trigger S3.
+    verificar-lambda Comprueba función Lambda y notificaciones S3.
+    probar-lambda   Invoca Lambda con un evento S3 de prueba.
     setup         Ejecuta el flujo completo de montaje (tarde AWS).
 
 Variables de entorno:
@@ -45,6 +48,12 @@ from aws.orquestador import (
     ejecutar_etl_local,
     ejecutar_pipeline_local,
     resumen_disponibilidad_local,
+)
+from aws.infra_lambda import (
+    desplegar_lambda,
+    empaquetar_lambda,
+    invocar_lambda_prueba,
+    verificar_lambda,
 )
 from aws.infra_rds import aplicar_esquema, probar_conexion
 from aws.infra_s3 import aprovisionar_bucket, verificar_bucket
@@ -147,6 +156,47 @@ def _crear_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="No subir ficheros a S3",
     )
+
+    empaquetar = subparsers.add_parser(
+        "empaquetar-lambda",
+        help="Genera el ZIP de despliegue Lambda (sin subir a AWS)",
+    )
+    empaquetar.add_argument(
+        "--salida",
+        default=None,
+        help="Ruta del ZIP de salida (opcional)",
+    )
+
+    desplegar = subparsers.add_parser(
+        "desplegar-lambda",
+        help="Empaqueta, despliega Lambda y configura trigger S3",
+    )
+    desplegar.add_argument("--bucket", default=None, help="Bucket S3 del proyecto")
+    desplegar.add_argument("--region", default=None, help="Región AWS")
+    desplegar.add_argument(
+        "--sin-empaquetar",
+        action="store_true",
+        help="Reutiliza build/lambda_package.zip sin regenerarlo",
+    )
+
+    verificar_lambda_cmd = subparsers.add_parser(
+        "verificar-lambda",
+        help="Comprueba función Lambda y notificaciones S3",
+    )
+    verificar_lambda_cmd.add_argument("--bucket", default=None, help="Bucket S3")
+    verificar_lambda_cmd.add_argument("--region", default=None, help="Región AWS")
+
+    probar_lambda = subparsers.add_parser(
+        "probar-lambda",
+        help="Invoca Lambda con un evento S3 sintético",
+    )
+    probar_lambda.add_argument(
+        "--clave",
+        required=True,
+        help="Clave S3 del objeto, ej. procesados/tarjetas_graficas/productos_...json",
+    )
+    probar_lambda.add_argument("--bucket", default=None, help="Bucket S3")
+    probar_lambda.add_argument("--region", default=None, help="Región AWS")
 
     return parser
 
@@ -298,6 +348,50 @@ def _comando_setup(args: argparse.Namespace) -> int:
     return 0
 
 
+def _comando_empaquetar_lambda(args: argparse.Namespace) -> int:
+    destino = Path(args.salida) if args.salida else None
+    paquete = empaquetar_lambda(destino=destino)
+    print(f"Paquete Lambda generado: {paquete}")
+    print(f"Tamaño: {paquete.stat().st_size / (1024 * 1024):.1f} MB")
+    return 0
+
+
+def _comando_desplegar_lambda(args: argparse.Namespace) -> int:
+    resultado = desplegar_lambda(
+        database_url=_database_url(),
+        bucket=args.bucket or AWS_S3_BUCKET,
+        region=args.region or AWS_REGION,
+        empaquetar=not args.sin_empaquetar,
+    )
+    print(resultado.mensaje)
+    print(json.dumps(resultado.__dict__, indent=2, ensure_ascii=False))
+    print(
+        "\nNota RDS: Lambda se conecta desde la red de AWS. "
+        "Si el RDS es público, el security group debe permitir "
+        "PostgreSQL (5432) desde 0.0.0.0/0 o usar Lambda en VPC."
+    )
+    return 0
+
+
+def _comando_verificar_lambda(args: argparse.Namespace) -> int:
+    resultado = verificar_lambda(
+        bucket=args.bucket or AWS_S3_BUCKET,
+        region=args.region or AWS_REGION,
+    )
+    print(json.dumps(resultado, indent=2, ensure_ascii=False))
+    return 0
+
+
+def _comando_probar_lambda(args: argparse.Namespace) -> int:
+    resultado = invocar_lambda_prueba(
+        clave_s3=args.clave,
+        bucket=args.bucket or AWS_S3_BUCKET,
+        region=args.region or AWS_REGION,
+    )
+    print(json.dumps(resultado, indent=2, ensure_ascii=False))
+    return 0
+
+
 def _comando_pipeline(args: argparse.Namespace) -> int:
     database_url = _database_url() if not args.dry_run else "dry-run://local"
     resultados = {}
@@ -335,6 +429,14 @@ def main() -> int:
             return _comando_aplicar_esquema()
         if args.comando == "setup":
             return _comando_setup(args)
+        if args.comando == "empaquetar-lambda":
+            return _comando_empaquetar_lambda(args)
+        if args.comando == "desplegar-lambda":
+            return _comando_desplegar_lambda(args)
+        if args.comando == "verificar-lambda":
+            return _comando_verificar_lambda(args)
+        if args.comando == "probar-lambda":
+            return _comando_probar_lambda(args)
     except Exception as error:
         print(f"Error: {error}", file=sys.stderr)
         return 1

@@ -17,6 +17,9 @@ env/
 
 
 
+# Build / despliegue Lambda
+build/
+
 # Archivos temporales
 *.log
 *.tmp
