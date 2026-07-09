@@ -257,6 +257,10 @@ Tablas:
 
 La carpeta `aws/` contiene la estructura para trabajar con S3, RDS y Lambda.
 
+AWS no forma parte del MVP local actual. El proyecto funciona en local con PostgreSQL y FastAPI.
+
+Tambien se ha probado la conexion de FastAPI contra AWS RDS. RDS contiene las tablas del proyecto y los resultados de modelos.
+
 Archivos relevantes:
 
 - `aws/categorias.py`
@@ -268,24 +272,58 @@ Archivos relevantes:
 
 Pendiente:
 
-- Validar RDS.
-- Validar S3.
-- Controlar ejecucion de Lambda.
-- Ejecutar cargas reales solo con autorizacion.
+- Validar RDS/S3/Lambda solo si se decide continuar con la parte cloud.
+- Ejecutar cargas reales en AWS solo con autorizacion.
 
 ## FastAPI
 
-La carpeta `api/` esta preparada, pero la API todavia no esta desarrollada.
+La carpeta `api/` contiene una primera API funcional con FastAPI.
 
-FastAPI debera consultar PostgreSQL y exponer endpoints para:
+La API consulta PostgreSQL con `psycopg` y expone endpoints para:
 
 - Estado del servicio.
-- Productos.
-- Especificaciones.
+- Estado de la conexion con PostgreSQL.
+- Consulta de productos con filtros y ordenacion.
+- Resumen de modelos.
 - Clustering RAM/GPU.
 - Sentimiento RAM/GPU.
 - Datos agregados para graficas.
-- Recomendacion mediante filtros y ranking SQL.
+- Ranking basico de productos mediante filtros SQL.
+
+Endpoints actuales:
+
+- `GET /health`
+- `GET /db/health`
+- `GET /consulta`
+- `GET /modelos`
+- `GET /modelos/clustering`
+- `GET /modelos/sentimiento`
+- `GET /graficas/resumen`
+- `GET /graficas/precios`
+- `GET /graficas/valoraciones`
+
+Parametros principales de `/consulta`:
+
+- `categoria`: `memoria_ram` o `tarjeta_grafica`.
+- `marca`: filtra por marca exacta.
+- `precio_min`: precio minimo.
+- `precio_max`: precio maximo.
+- `orden`: `precio`, `valoracion` u `opiniones`.
+- `limit`: numero de productos devueltos, entre 1 y 50.
+
+Ejemplo:
+
+```text
+http://127.0.0.1:8000/consulta?categoria=tarjeta_grafica&marca=MSI&precio_max=500&orden=valoracion&limit=5
+```
+
+Ejecutar la API:
+
+```powershell
+python -m uvicorn api.main:app --reload
+```
+
+La API puede consultar PostgreSQL local o AWS RDS cambiando `DATABASE_URL` en `.env`.
 
 ## Streamlit
 
@@ -311,6 +349,20 @@ Instalar dependencias:
 pip install -r requirements.txt
 ```
 
+Crear un archivo `.env` en la raiz del proyecto con la conexion local a PostgreSQL:
+
+```text
+DATABASE_URL=postgresql://usuario:password@localhost:5432/pccomponentes_ml
+```
+
+Para usar AWS RDS, `DATABASE_URL` debe apuntar a la instancia RDS e incluir SSL:
+
+```text
+DATABASE_URL=postgresql://usuario:password@host-rds.amazonaws.com:5432/pccomponentes_ml?sslmode=require
+```
+
+No subir `.env` a Git. El repositorio mantiene `.env.example` como plantilla.
+
 Dependencias principales:
 
 - `pandas`
@@ -322,14 +374,15 @@ Dependencias principales:
 - `boto3`
 - `torch`
 - `transformers`
+- `fastapi`
+- `uvicorn`
 
-FastAPI, Uvicorn y Streamlit se anadiran cuando se desarrolle esa parte.
+Streamlit se anadira cuando se desarrolle esa parte.
 
 ## Proximos pasos
 
-1. Revisar la estructura existente de `api/`.
-2. Crear FastAPI y conectar con PostgreSQL.
-3. Crear endpoints para productos, clustering y sentimiento.
-4. Crear Streamlit consumiendo FastAPI.
-5. Validar AWS/RDS/S3/Lambda.
-6. Preparar revision final y presentacion.
+1. Crear Streamlit consumiendo FastAPI.
+2. Crear vistas para resumen, filtros, modelos y graficas.
+3. Revisar y documentar ejemplos de uso de la API.
+4. Preparar la explicacion academica del flujo PostgreSQL/RDS -> FastAPI -> Streamlit.
+5. Preparar revision final y presentacion.
