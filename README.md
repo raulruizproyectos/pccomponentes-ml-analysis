@@ -327,19 +327,35 @@ La API puede consultar PostgreSQL local o AWS RDS cambiando `DATABASE_URL` en `.
 
 ## Streamlit
 
-La carpeta `streamlit_app/` esta preparada, pero la app todavia no esta desarrollada.
+La aplicacion esta en `streamlit_app/streamlit_main.py`.
 
-Streamlit debera consumir FastAPI, no conectarse directamente a PostgreSQL.
+Streamlit consume los datos desde FastAPI y no se conecta directamente a PostgreSQL.
 
-Vistas recomendadas:
+La aplicacion tiene tres pestañas:
 
-- Resumen general.
-- Filtros de productos.
-- Comparativas RAM/GPU.
-- Graficas de clustering.
-- Graficas de sentimiento.
-- Tabla de productos recomendados.
-- Ficha de producto.
+- `Asistente`: permite filtrar productos por categoria, marca y precio.
+- `Analisis`: muestra un resumen general de RAM y tarjetas graficas.
+- `Recomendador`: muestra las graficas de clustering y sentimiento.
+
+Primero hay que iniciar FastAPI en una terminal:
+
+```powershell
+python -m uvicorn api.main:app --reload
+```
+
+Despues hay que abrir otra terminal e iniciar Streamlit:
+
+```powershell
+python -m streamlit run streamlit_app/streamlit_main.py
+```
+
+La aplicacion se abre en `http://localhost:8501`.
+
+Para ejecutar la comprobacion rapida de Streamlit:
+
+```powershell
+python check_streamlit.py
+```
 
 ## Instalacion
 
@@ -376,13 +392,10 @@ Dependencias principales:
 - `transformers`
 - `fastapi`
 - `uvicorn`
-
-Streamlit se anadira cuando se desarrolle esa parte.
+- `streamlit`
 
 ## Proximos pasos
 
-1. Crear Streamlit consumiendo FastAPI.
-2. Crear vistas para resumen, filtros, modelos y graficas.
-3. Revisar y documentar ejemplos de uso de la API.
-4. Preparar la explicacion academica del flujo PostgreSQL/RDS -> FastAPI -> Streamlit.
-5. Preparar revision final y presentacion.
+1. Revisar y documentar ejemplos de uso de la API.
+2. Preparar la explicacion academica del flujo PostgreSQL/RDS -> FastAPI -> Streamlit.
+3. Preparar la revision final y la presentacion.
