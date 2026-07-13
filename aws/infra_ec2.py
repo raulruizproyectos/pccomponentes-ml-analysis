@@ -232,28 +232,8 @@ DATABASE_URL=$(aws ssm get-parameter --region {region} --name {PARAMETRO_DATABAS
 printf 'DATABASE_URL=%s\\n' "$DATABASE_URL" > /etc/pccomponentes/api.env
 chmod 600 /etc/pccomponentes/api.env
 
-cat > /etc/systemd/system/pccomponentes-api.service <<'EOF'
-[Unit]
-Description=FastAPI PCComponentes
-After=network-online.target
-Wants=network-online.target
-
-[Service]
-User=ec2-user
-WorkingDirectory=/opt/pccomponentes-ml-analysis
-EnvironmentFile=/etc/pccomponentes/api.env
-ExecStart=/opt/pccomponentes-ml-analysis/.venv/bin/python -m uvicorn api.main:app --host 0.0.0.0 --port 8000
-Restart=always
-RestartSec=5
-NoNewPrivileges=true
-PrivateTmp=true
-
-[Install]
-WantedBy=multi-user.target
-EOF
-
-systemctl daemon-reload
-systemctl enable --now pccomponentes-api
+chmod +x deploy/iniciar_fastapi_tmux.sh
+deploy/iniciar_fastapi_tmux.sh
 """
 
 

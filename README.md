@@ -236,6 +236,33 @@ En AWS tenemos estos recursos:
 - PostgreSQL cerrado a Internet; solo acceden Lambda, EC2 y las IP autorizadas del equipo.
 - IAM Identity Center para el acceso temporal del equipo.
 
+### FastAPI en EC2 con tmux
+
+FastAPI se mantiene abierto dentro de una sesión `tmux`. La instancia también
+usa 1 GB de memoria swap temporal para evitar problemas de memoria durante las
+instalaciones. Todo está preparado en `deploy/iniciar_fastapi_tmux.sh`.
+
+Para volver a preparar e iniciar FastAPI desde la carpeta del proyecto en EC2:
+
+```bash
+sudo bash deploy/iniciar_fastapi_tmux.sh
+```
+
+Para comprobar la memoria swap y la sesión:
+
+```bash
+swapon --show
+tmux ls
+```
+
+Para entrar en la sesión de FastAPI:
+
+```bash
+tmux attach -t fastapi
+```
+
+Para salir sin detener FastAPI se pulsa `Ctrl+B` y después `D`.
+
 Estos comandos comprueban la configuración sin cambiar nada en AWS:
 
 ```powershell
