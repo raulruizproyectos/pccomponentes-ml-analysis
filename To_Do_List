@@ -1,37 +1,44 @@
-# TODO del proyecto
+# Estado de la entrega
 
-## Dani - Memorias RAM
-- [x] Buscar fuentes de datos (pccomponentes.com/memorias-ram)
-- [x] Extraer modelo / nombre / sku / precio (listado + detalle)
-- [x] Extraer reseñas y valoraciones (summary + 0-15 resenas LD embebidas)
-- [x] Extraer memoria interna / kit / capacidad (parser)
-- [x] Extraer diseno de memoria / tipo / velocidad / latencia / compatibilidad (parser desde nombre)
-- [ ] Extraer voltaje (mejorar parser con más patrones HTML)
-- [ ] Enriquecer datos existentes con resenas+especificaciones completas (revisitar o re-run)
-- [ ] Extraer reseñas completas (todas, con verificada/likes) - requiere más scraping de sección opiniones
+Esta lista sigue los criterios de `enunciado.md`.
 
-## Raul - Tarjetas graficas
-- [ ] Buscar fuentes de datos
-- [ ] Extraer modelo
-- [ ] Extraer precio
-- [ ] Extraer memoria VRAM
-- [ ] Extraer procesador grafico / GPU
-- [ ] Extraer bus de memoria
-- [ ] Extraer velocidad de memoria / reloj boost
-- [ ] Extraer salidas de video
-- [ ] Extraer resolucion maxima
-- [ ] Extraer reseñas y valoraciones
+## Fase 01: infraestructura y datos
 
-## Andres - Pendiente de definir
-- [x] Revisar estructura de datos RAM (specs + resenas)
-- [ ] Apoyar GPU o pipeline ETL / Streamlit
-- [ ] Revisar schema final DB para soportar ambos (RAM + GPU)
+- [x] Scraping de memorias RAM.
+- [x] Datos de tarjetas gráficas incorporados y adaptados.
+- [x] Limpieza de productos, especificaciones y reseñas.
+- [x] Archivos JSON brutos y procesados.
+- [x] Esquema PostgreSQL para RAM y GPU.
+- [x] Base de datos RDS poblada.
+- [x] Bucket S3 configurado.
+- [x] Lambda ETL conectada con S3 y RDS.
+- [x] Disparadores separados para RAM y GPU.
+- [x] Prueba controlada S3 -> Lambda -> RDS para ambas categorías.
+- [ ] Configurar y demostrar la ejecución periódica del scraping.
 
-## Tareas comunes
-- [x] Definir fuentes de datos
-- [x] Preparar primer script de extraccion (listado+detalle RAM completo ~1646 prods)
-- [x] Guardar datos brutos en la carpeta correspondiente (data/brutos/ram/*.json)
-- [x] Limpieza + documentación exhaustiva de scrapers (comentarios, docstrings, eliminación de redundancia y código muerto)
-- [ ] Acordar nombres de columnas / schema final (RAM + GPU)
-- [ ] Cargar a PostgreSQL via ETL (usar datos actuales + nuevos campos)
-- [ ] Iniciar fase Tarjetas Graficas (Raul)
+## Fase 02: modelos y aplicación
+
+- [x] EDA de RAM y GPU.
+- [x] Clustering de RAM y GPU.
+- [x] Análisis de sentimiento de RAM y GPU.
+- [x] Resultados de modelos guardados en PostgreSQL.
+- [x] Endpoint `/ask`.
+- [x] Endpoint `/similar-products`.
+- [x] Endpoint `/sentiment`.
+- [x] Endpoint `/modelos/pca`.
+- [x] Streamlit conectado con FastAPI.
+- [x] Asistente de preguntas.
+- [x] Análisis por producto.
+- [x] Recomendador real del mismo clúster.
+- [x] Mapa interactivo PCA.
+- [ ] Desplegar FastAPI en EC2.
+
+## Preparación de la entrega
+
+- [x] Plantilla `.env.example` sin secretos.
+- [x] Comprobaciones de Streamlit, PCA y Lambda.
+- [x] Comprobación automática de endpoints.
+- [x] Guía de evaluación en README.
+- [ ] Añadir la URL pública de EC2 al README.
+- [ ] Ejecutar la prueba final desde un clon limpio.
+- [ ] Preparar la demostración final del flujo completo.

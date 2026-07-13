@@ -4,7 +4,7 @@ Aprovisionamiento de AWS Lambda para el pipeline ETL (S3 -> PostgreSQL).
 Flujo:
     1. Empaqueta código + dependencias Linux (psycopg) en un ZIP.
     2. Crea/actualiza rol IAM, función Lambda y permisos S3.
-    3. Configura notificaciones S3 en brutos/ y procesados/.
+    3. Activa Lambda cuando termina la subida de datos procesados.
 """
 
 from __future__ import annotations
@@ -254,6 +254,34 @@ def _permiso_s3_invocar_lambda(
             raise
 
 
+def _crear_reglas_notificacion_s3(funcion_arn: str) -> list[dict]:
+    """Crea una regla por categoría usando el último fichero de la subida."""
+    from aws.categorias import listar_categorias
+
+    reglas = []
+
+    for categoria in listar_categorias():
+        prefijo = f"procesados/{categoria.slug}/"
+        archivo_final = categoria.procesados["resenas"].name
+        reglas.append(
+            {
+                "Id": f"etl-procesados-{categoria.slug}",
+                "LambdaFunctionArn": funcion_arn,
+                "Events": ["s3:ObjectCreated:*"],
+                "Filter": {
+                    "Key": {
+                        "FilterRules": [
+                            {"Name": "prefix", "Value": prefijo},
+                            {"Name": "suffix", "Value": archivo_final},
+                        ]
+                    }
+                },
+            }
+        )
+
+    return reglas
+
+
 def _configurar_notificaciones_s3(
     *,
     bucket: str,
@@ -275,29 +303,7 @@ def _configurar_notificaciones_s3(
         if regla.get("LambdaFunctionArn") != funcion_arn
     ]
 
-    from aws.categorias import listar_categorias
-
-    categorias = listar_categorias()
-    prefijos = [f"procesados/{categoria.slug}/" for categoria in categorias]
-    prefijos += [f"brutos/{categoria.slug}/" for categoria in categorias]
-
-    nuevas_reglas = []
-    for prefijo in prefijos:
-        nuevas_reglas.append(
-            {
-                "Id": f"etl-{prefijo.replace('/', '-')}",
-                "LambdaFunctionArn": funcion_arn,
-                "Events": ["s3:ObjectCreated:*"],
-                "Filter": {
-                    "Key": {
-                        "FilterRules": [
-                            {"Name": "prefix", "Value": prefijo},
-                            {"Name": "suffix", "Value": ".json"},
-                        ]
-                    }
-                },
-            }
-        )
+    nuevas_reglas = _crear_reglas_notificacion_s3(funcion_arn)
 
     configuracion_actual["LambdaFunctionConfigurations"] = reglas_lambda + nuevas_reglas
     s3.put_bucket_notification_configuration(
@@ -351,7 +357,7 @@ def desplegar_lambda(
         notificaciones_s3=notificaciones,
         mensaje=(
             f"Lambda desplegada: {LAMBDA_FUNCTION_NAME}. "
-            f"Trigger S3 activo en {len(notificaciones)} prefijos."
+            f"Trigger S3 activo con {len(notificaciones)} reglas."
         ),
     )
 
@@ -410,6 +416,16 @@ def verificar_lambda(
                             .get("Key", {})
                             .get("FilterRules", [])
                             if filtro.get("Name") == "prefix"
+                        ),
+                        None,
+                    ),
+                    "sufijo": next(
+                        (
+                            filtro["Value"]
+                            for filtro in regla.get("Filter", {})
+                            .get("Key", {})
+                            .get("FilterRules", [])
+                            if filtro.get("Name") == "suffix"
                         ),
                         None,
                     ),

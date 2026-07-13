@@ -1,401 +1,216 @@
 # PCComponentes ML Analysis
 
-Proyecto para recoger, limpiar, guardar y analizar datos de componentes de PCComponentes.
+Proyecto académico para extraer, limpiar, guardar y analizar información de memorias RAM y tarjetas gráficas de PcComponentes.
 
-Trabajamos con memorias RAM y tarjetas graficas. Los datos se limpian, se guardan en PostgreSQL y se utilizan para analisis exploratorio, clustering y analisis de sentimiento.
+El proyecto incluye scraping, archivos JSON, PostgreSQL en RDS, S3, Lambda, clustering, análisis de sentimiento, FastAPI y una interfaz en Streamlit.
 
 ## Integrantes
 
 - Dani
-- Raul
-- Andres
+- Raúl
+- Andrés
 
-## Flujo del proyecto
+## Guía rápida de evaluación
 
-1. Extraer datos de PcComponentes.
-2. Guardar los datos brutos en JSON.
-3. Limpiar y adaptar los datos.
-4. Cargar los datos limpios en PostgreSQL.
-5. Analizar los datos con notebooks.
-6. Generar modelos y resultados.
-7. Guardar los resultados de modelos en PostgreSQL.
-8. Consumir los datos desde FastAPI y Streamlit.
+Esta sección permite comprobar la entrega siguiendo los criterios de `enunciado.md`.
 
-## Estado actual
+### 1. Preparar el proyecto
 
-### RAM
-
-Completado:
-
-- Extraccion de productos, especificaciones y resenas.
-- Limpieza de datos.
-- Carga en PostgreSQL.
-- EDA de datos brutos y limpios.
-- Clustering con K-Means.
-- Guardado de clustering en PostgreSQL.
-- Analisis de sentimiento con Hugging Face.
-- Guardado de sentimiento en PostgreSQL.
-
-Conteos actuales:
-
-- Productos: 1646.
-- Especificaciones: 1574.
-- Distribuciones de valoraciones: 1574.
-- Resenas: 5876.
-- Resultados de sentimiento: 5876.
-
-Tablas principales:
-
-- `productos`
-- `especificaciones_ram`
-- `distribucion_valoraciones`
-- `resenas`
-- `resultados_clustering_ram`
-- `resultados_sentimiento`
-
-### GPU
-
-Completado:
-
-- Incorporacion del JSON de GPU preprocesado por IA.
-- Limpieza y adaptacion al esquema del proyecto.
-- Generacion de archivos procesados.
-- Carga en PostgreSQL.
-- Extraccion y carga de resenas GPU.
-- Clustering con K-Means.
-- Guardado de clustering en PostgreSQL.
-- Analisis de sentimiento con Hugging Face.
-- Guardado de sentimiento en PostgreSQL.
-
-Conteos actuales:
-
-- Productos: 500.
-- Especificaciones: 500.
-- Distribuciones de valoraciones: 500.
-- Resenas GPU: 3564.
-- Resultados de clustering: 500.
-- Resultados de sentimiento: 3564.
-
-Tablas principales:
-
-- `productos`
-- `especificaciones_gpu`
-- `distribucion_valoraciones`
-- `resenas_gpu`
-- `resultados_clustering_gpu`
-- `resultados_sentimiento_gpu`
-
-Grupos de clustering GPU:
-
-- `alta_gama`: 137 productos.
-- `gama_media`: 198 productos.
-- `ficha_incompleta`: 165 productos.
-
-Las resenas GPU se guardan en `resenas_gpu` porque no incluyen valoracion individual por resena.
-
-## Estructura principal
-
-```text
-pccomponentes-ml-analysis/
-|-- api/
-|-- aws/
-|-- comun/
-|-- config/
-|-- data/
-|   |-- brutos/
-|   `-- procesados/
-|-- database/
-|-- docs/
-|-- models/
-|-- notebooks/
-|   |-- 01_eda_ram.ipynb
-|   |-- 02_eda_tarjetas_graficas.ipynb
-|   |-- 03_conexion_postgresql.ipynb
-|   |-- 04_eda_ram_datos_limpios.ipynb
-|   |-- 05_preparacion_modelo_ram.ipynb
-|   |-- 06_nlp_resenas_ram.ipynb
-|   |-- 07_sentimiento_resenas_ram.ipynb
-|   |-- 08_preparacion_modelo_gpu.ipynb
-|   |-- 09_sentimiento_resenas_gpu.ipynb
-|   |-- base_de_datos_tgraf.ipynb
-|   |-- limpieza_tgraf.ipynb
-|   `-- scraping_tgraf.ipynb
-|-- pipeline/
-|-- scrapers/
-|-- streamlit_app/
-|-- ejecutar_aws.py
-|-- ejecutar_scraper.py
-|-- requirements.txt
-`-- README.md
-```
-
-## Notebooks
-
-### 01_eda_ram.ipynb
-
-Analisis inicial de los datos brutos de RAM.
-
-### 02_eda_tarjetas_graficas.ipynb
-
-Analisis inicial de tarjetas graficas.
-
-### 03_conexion_postgresql.ipynb
-
-Pruebas de conexion con PostgreSQL.
-
-### 04_eda_ram_datos_limpios.ipynb
-
-Analisis de datos limpios de RAM desde PostgreSQL.
-
-### 05_preparacion_modelo_ram.ipynb
-
-Preparacion de datos y clustering de RAM.
-
-### 06_nlp_resenas_ram.ipynb
-
-Analisis exploratorio de resenas RAM.
-
-### 07_sentimiento_resenas_ram.ipynb
-
-Analisis de sentimiento de resenas RAM y guardado en PostgreSQL.
-
-### 08_preparacion_modelo_gpu.ipynb
-
-Preparacion de datos y clustering de tarjetas graficas.
-
-### 09_sentimiento_resenas_gpu.ipynb
-
-Analisis de sentimiento de resenas GPU y guardado en PostgreSQL.
-
-### Notebooks GPU auxiliares
-
-Estos notebooks proceden del trabajo previo de GPU y se conservan por trazabilidad:
-
-- `base_de_datos_tgraf.ipynb`
-- `limpieza_tgraf.ipynb`
-- `scraping_tgraf.ipynb`
-
-## Base de datos
-
-El esquema principal esta en:
-
-```text
-database/esquema.sql
-```
-
-Archivos de insercion:
-
-- `database/inserciones_ram.py`
-- `database/inserciones_gpu.py`
-
-Tablas principales:
-
-- `productos`
-- `especificaciones_ram`
-- `especificaciones_gpu`
-- `distribucion_valoraciones`
-- `resenas`
-- `resenas_gpu`
-- `resultados_clustering_ram`
-- `resultados_clustering_gpu`
-- `resultados_sentimiento`
-- `resultados_sentimiento_gpu`
-
-## Pipeline
-
-Limpieza RAM:
+Requisitos: Python 3.11 y acceso a una base de datos PostgreSQL con los datos del proyecto.
 
 ```powershell
-python -B pipeline/limpieza_ram.py
+git clone https://github.com/raulruizproyectos/pccomponentes-ml-analysis.git
+cd pccomponentes-ml-analysis
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+Copy-Item .env.example .env
 ```
 
-Carga RAM a PostgreSQL:
+Editar `.env` y escribir la conexión recibida por un canal privado:
 
 ```text
-pipeline/carga_ram_postgresql.py
+DATABASE_URL=postgresql://usuario:password@host:5432/pccomponentes_ml?sslmode=require
+API_BASE_URL=http://127.0.0.1:8000
 ```
 
-Limpieza GPU:
+Las contraseñas y las credenciales de AWS no se guardan en el repositorio.
+
+### 2. Comprobar el código
+
+Esta prueba no modifica datos ni necesita iniciar FastAPI:
 
 ```powershell
-python -B pipeline/limpieza_gpu.py
+python check_project.py
 ```
 
-Carga GPU a PostgreSQL:
+Comprueba la sintaxis y la integración de Streamlit, el cálculo PCA y la configuración de los disparadores de Lambda.
 
-```text
-pipeline/carga_gpu_postgresql.py
-```
+### 3. Iniciar y comprobar FastAPI
 
-## Modelos
-
-### Clustering
-
-RAM y GPU usan K-Means para agrupar productos segun variables numericas y categoricas preparadas.
-
-Los resultados se guardan en PostgreSQL para no ejecutar el modelo en cada consulta.
-
-Tablas:
-
-- `resultados_clustering_ram`
-- `resultados_clustering_gpu`
-
-### Sentimiento
-
-Modelo utilizado:
-
-```text
-nlptown/bert-base-multilingual-uncased-sentiment
-```
-
-Tablas:
-
-- `resultados_sentimiento`
-- `resultados_sentimiento_gpu`
-
-## AWS
-
-La carpeta `aws/` contiene la estructura para trabajar con S3, RDS y Lambda.
-
-AWS no forma parte del MVP local actual. El proyecto funciona en local con PostgreSQL y FastAPI.
-
-Tambien se ha probado la conexion de FastAPI contra AWS RDS. RDS contiene las tablas del proyecto y los resultados de modelos.
-
-Archivos relevantes:
-
-- `aws/categorias.py`
-- `aws/infra_rds.py`
-- `aws/infra_s3.py`
-- `aws/lambda_handler.py`
-- `aws/orquestador.py`
-- `aws/s3_client.py`
-
-Pendiente:
-
-- Validar RDS/S3/Lambda solo si se decide continuar con la parte cloud.
-- Ejecutar cargas reales en AWS solo con autorizacion.
-
-## FastAPI
-
-La carpeta `api/` contiene una primera API funcional con FastAPI.
-
-La API consulta PostgreSQL con `psycopg` y expone endpoints para:
-
-- Estado del servicio.
-- Estado de la conexion con PostgreSQL.
-- Consulta de productos con filtros y ordenacion.
-- Resumen de modelos.
-- Clustering RAM/GPU.
-- Sentimiento RAM/GPU.
-- Datos agregados para graficas.
-- Ranking basico de productos mediante filtros SQL.
-
-Endpoints actuales:
-
-- `GET /health`
-- `GET /db/health`
-- `GET /consulta`
-- `GET /modelos`
-- `GET /modelos/clustering`
-- `GET /modelos/sentimiento`
-- `GET /graficas/resumen`
-- `GET /graficas/precios`
-- `GET /graficas/valoraciones`
-
-Parametros principales de `/consulta`:
-
-- `categoria`: `memoria_ram` o `tarjeta_grafica`.
-- `marca`: filtra por marca exacta.
-- `precio_min`: precio minimo.
-- `precio_max`: precio maximo.
-- `orden`: `precio`, `valoracion` u `opiniones`.
-- `limit`: numero de productos devueltos, entre 1 y 50.
-
-Ejemplo:
-
-```text
-http://127.0.0.1:8000/consulta?categoria=tarjeta_grafica&marca=MSI&precio_max=500&orden=valoracion&limit=5
-```
-
-Ejecutar la API:
+En una terminal:
 
 ```powershell
 python -m uvicorn api.main:app --reload
 ```
 
-La API puede consultar PostgreSQL local o AWS RDS cambiando `DATABASE_URL` en `.env`.
+La documentación interactiva queda disponible en:
 
-## Streamlit
-
-La aplicacion esta en `streamlit_app/streamlit_main.py`.
-
-Streamlit consume los datos desde FastAPI y no se conecta directamente a PostgreSQL.
-
-La aplicacion tiene tres pestañas:
-
-- `Asistente`: permite filtrar productos por categoria, marca y precio.
-- `Analisis`: muestra un resumen general de RAM y tarjetas graficas.
-- `Recomendador`: muestra las graficas de clustering y sentimiento.
-
-Primero hay que iniciar FastAPI en una terminal:
-
-```powershell
-python -m uvicorn api.main:app --reload
+```text
+http://127.0.0.1:8000/docs
 ```
 
-Despues hay que abrir otra terminal e iniciar Streamlit:
+En otra terminal:
+
+```powershell
+python check_project.py --api
+```
+
+Esta orden prueba todos los endpoints principales, incluidos los tres exigidos en el enunciado y el mapa PCA. El producto de ejemplo es `ram_0012`.
+
+### 4. Iniciar Streamlit
+
+Con FastAPI todavía iniciado, abrir otra terminal:
 
 ```powershell
 python -m streamlit run streamlit_app/streamlit_main.py
 ```
 
-La aplicacion se abre en `http://localhost:8501`.
+La aplicación se abre en `http://localhost:8501` y permite comprobar:
 
-Para ejecutar la comprobacion rapida de Streamlit:
+- Asistente de preguntas mediante `/ask`.
+- Sentimiento, palabras clave, pros y contras mediante `/sentiment`.
+- Alternativas del mismo grupo mediante `/similar-products`.
+- Mapa interactivo de clústeres mediante PCA.
+- Filtros y resúmenes generales del catálogo.
 
-```powershell
-python check_streamlit.py
-```
-
-## Instalacion
-
-Instalar dependencias:
-
-```powershell
-pip install -r requirements.txt
-```
-
-Crear un archivo `.env` en la raiz del proyecto con la conexion local a PostgreSQL:
+Ejemplo para las tres pestañas:
 
 ```text
-DATABASE_URL=postgresql://usuario:password@localhost:5432/pccomponentes_ml
+Producto: Kingston FURY Beast DDR4 3200 MHz 16GB 2x8GB CL16
+ID: ram_0012
+Pregunta: ¿Cuáles son las quejas más comunes?
 ```
 
-Para usar AWS RDS, `DATABASE_URL` debe apuntar a la instancia RDS e incluir SSL:
+## Endpoints principales
+
+| Endpoint | Función |
+|---|---|
+| `GET /health` | Comprueba FastAPI. |
+| `GET /db/health` | Comprueba PostgreSQL. |
+| `GET /consulta` | Busca y filtra productos. |
+| `GET /ask` | Responde preguntas sobre un producto. |
+| `GET /sentiment` | Devuelve sentimiento, palabras clave, pros y contras. |
+| `GET /similar-products` | Recomienda productos del mismo clúster. |
+| `GET /modelos/pca` | Devuelve las coordenadas del mapa PCA. |
+| `GET /modelos/clustering` | Resume los grupos de RAM y GPU. |
+| `GET /modelos/sentimiento` | Resume el sentimiento de RAM y GPU. |
+| `GET /graficas/resumen` | Devuelve indicadores generales. |
+| `GET /graficas/precios` | Devuelve datos agregados de precios. |
+| `GET /graficas/valoraciones` | Devuelve datos agregados de valoraciones. |
+
+Ejemplos directos:
 
 ```text
-DATABASE_URL=postgresql://usuario:password@host-rds.amazonaws.com:5432/pccomponentes_ml?sslmode=require
+http://127.0.0.1:8000/sentiment?producto_id=ram_0012
+http://127.0.0.1:8000/similar-products?producto_id=ram_0012&limit=5
+http://127.0.0.1:8000/ask?producto_id=ram_0012&pregunta=Que%20opinan%20los%20usuarios
+http://127.0.0.1:8000/modelos/pca?categoria=memoria_ram
 ```
 
-No subir `.env` a Git. El repositorio mantiene `.env.example` como plantilla.
+## Correspondencia con el enunciado
 
-Dependencias principales:
+| Criterio de entrega | Implementación |
+|---|---|
+| Scraping de productos y reseñas | `scrapers/` y `ejecutar_scraper.py`. |
+| Datos brutos y procesados | `data/brutos/` y `data/procesados/`. |
+| Limpieza y ETL | `pipeline/` y `aws/lambda_handler.py`. |
+| S3, Lambda y PostgreSQL RDS | `aws/`, `database/` y `ejecutar_aws.py`. |
+| EDA y preparación de modelos | `notebooks/`. |
+| Clustering | K-Means para RAM y GPU, con resultados en PostgreSQL. |
+| Análisis de sentimiento | Modelo multilingüe, con resultados en PostgreSQL. |
+| API con los tres endpoints pedidos | `api/main.py`. |
+| Dashboard y mapa PCA | `streamlit_app/streamlit_main.py`. |
+| Despliegue FastAPI en EC2 | Pendiente de completar. |
 
-- `pandas`
-- `psycopg[binary]`
-- `matplotlib`
-- `seaborn`
-- `scikit-learn`
-- `joblib`
-- `boto3`
-- `torch`
-- `transformers`
-- `fastapi`
-- `uvicorn`
-- `streamlit`
+La preparación inicial del conjunto GPU incluyó una limpieza asistida con IA, autorizada por el profesor. Después se adaptaron y validaron los datos con el código de `pipeline/limpieza_gpu.py`.
 
-## Proximos pasos
+## Flujo de datos
 
-1. Revisar y documentar ejemplos de uso de la API.
-2. Preparar la explicacion academica del flujo PostgreSQL/RDS -> FastAPI -> Streamlit.
-3. Preparar la revision final y la presentacion.
+```text
+PcComponentes
+      |
+      v
+Scraping -> JSON local -> S3 -> Lambda ETL -> PostgreSQL RDS
+                                                   |
+                                                   v
+                                        Modelos y resultados
+                                                   |
+                                                   v
+                                         FastAPI -> Streamlit
+```
+
+## AWS
+
+La infraestructura activa utiliza:
+
+- Bucket S3 `pccomponents-bkt` en `eu-north-1`.
+- Lambda `pccomponentes-ml-etl` con dos disparadores, uno para RAM y otro para GPU.
+- PostgreSQL RDS `database-1`.
+- IAM Identity Center para el acceso temporal del equipo.
+
+Comprobaciones locales sin modificar AWS:
+
+```powershell
+python ejecutar_aws.py estado
+python ejecutar_aws.py etl --categoria todas --dry-run
+python check_lambda.py
+```
+
+Para comprobar los recursos reales es necesario tener un usuario autorizado en IAM Identity Center:
+
+```powershell
+aws sso login --profile nombre-del-perfil
+$env:AWS_PROFILE="nombre-del-perfil"
+python ejecutar_aws.py verificar-s3
+python ejecutar_aws.py verificar-lambda
+```
+
+No se deben guardar claves permanentes de AWS en `.env` ni en otros archivos del proyecto.
+
+## Estructura principal
+
+```text
+api/             FastAPI y consultas
+aws/             S3, Lambda, RDS y orquestación
+data/            JSON brutos y procesados
+database/        Esquema y consultas PostgreSQL
+models/          Modelo guardado
+notebooks/       EDA, clustering y sentimiento
+pipeline/        Limpieza y carga de datos
+scrapers/        Extracción de PcComponentes
+streamlit_app/   Interfaz web
+check_*.py       Comprobaciones reproducibles
+```
+
+## Estado de los datos
+
+### Memorias RAM
+
+- 1646 productos.
+- 1574 especificaciones.
+- 5876 reseñas con resultado de sentimiento.
+- Tres grupos de clustering.
+
+### Tarjetas gráficas
+
+- 500 productos y especificaciones.
+- 3564 reseñas con resultado de sentimiento.
+- Tres grupos de clustering: alta gama, gama media y ficha incompleta.
+
+## Trabajo pendiente
+
+1. Desplegar FastAPI en EC2 y añadir su URL de evaluación.
+2. Restringir el acceso público de RDS después de conectar Lambda y EC2 mediante una red privada.
+3. Preparar una demostración final del flujo completo.
+4. Configurar y demostrar la ejecución periódica del scraping.

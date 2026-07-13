@@ -18,8 +18,7 @@ Comandos:
     setup         Ejecuta el flujo completo de montaje (tarde AWS).
 
 Variables de entorno:
-    AWS_S3_BUCKET, AWS_REGION, DATABASE_URL
-    AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY
+    AWS_S3_BUCKET, AWS_REGION, DATABASE_URL, AWS_PROFILE
 
 Ejemplos:
     python ejecutar_aws.py estado
@@ -367,8 +366,8 @@ def _comando_desplegar_lambda(args: argparse.Namespace) -> int:
     print(json.dumps(resultado.__dict__, indent=2, ensure_ascii=False))
     print(
         "\nNota RDS: Lambda se conecta desde la red de AWS. "
-        "Si el RDS es público, el security group debe permitir "
-        "PostgreSQL (5432) desde 0.0.0.0/0 o usar Lambda en VPC."
+        "La opción recomendada es usar Lambda en VPC y permitir "
+        "PostgreSQL (5432) solo desde su grupo de seguridad."
     )
     return 0
 
