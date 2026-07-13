@@ -15,6 +15,8 @@ Comandos:
     desplegar-lambda Crea/actualiza Lambda ETL + trigger S3.
     verificar-lambda Comprueba función Lambda y notificaciones S3.
     probar-lambda   Invoca Lambda con un evento S3 de prueba.
+    desplegar-ec2   Despliega FastAPI en EC2.
+    verificar-ec2  Muestra el estado y la URL de FastAPI en EC2.
     setup         Ejecuta el flujo completo de montaje (tarde AWS).
 
 Variables de entorno:
@@ -43,6 +45,7 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 from aws.categorias import obtener_categoria, resolver_categorias
+from aws.infra_ec2 import desplegar_ec2, verificar_ec2
 from aws.orquestador import (
     ejecutar_etl_local,
     ejecutar_pipeline_local,
@@ -196,6 +199,18 @@ def _crear_parser() -> argparse.ArgumentParser:
     )
     probar_lambda.add_argument("--bucket", default=None, help="Bucket S3")
     probar_lambda.add_argument("--region", default=None, help="Región AWS")
+
+    desplegar_ec2_cmd = subparsers.add_parser(
+        "desplegar-ec2",
+        help="Despliega FastAPI en una instancia EC2",
+    )
+    desplegar_ec2_cmd.add_argument("--region", default=None, help="Región AWS")
+
+    verificar_ec2_cmd = subparsers.add_parser(
+        "verificar-ec2",
+        help="Muestra el estado y la URL de FastAPI en EC2",
+    )
+    verificar_ec2_cmd.add_argument("--region", default=None, help="Región AWS")
 
     return parser
 
@@ -391,6 +406,21 @@ def _comando_probar_lambda(args: argparse.Namespace) -> int:
     return 0
 
 
+def _comando_desplegar_ec2(args: argparse.Namespace) -> int:
+    resultado = desplegar_ec2(
+        database_url=_database_url(),
+        region=args.region or AWS_REGION,
+    )
+    print(json.dumps(resultado, indent=2, ensure_ascii=False))
+    return 0
+
+
+def _comando_verificar_ec2(args: argparse.Namespace) -> int:
+    resultado = verificar_ec2(region=args.region or AWS_REGION)
+    print(json.dumps(resultado, indent=2, ensure_ascii=False))
+    return 0
+
+
 def _comando_pipeline(args: argparse.Namespace) -> int:
     database_url = _database_url() if not args.dry_run else "dry-run://local"
     resultados = {}
@@ -436,6 +466,10 @@ def main() -> int:
             return _comando_verificar_lambda(args)
         if args.comando == "probar-lambda":
             return _comando_probar_lambda(args)
+        if args.comando == "desplegar-ec2":
+            return _comando_desplegar_ec2(args)
+        if args.comando == "verificar-ec2":
+            return _comando_verificar_ec2(args)
     except Exception as error:
         print(f"Error: {error}", file=sys.stderr)
         return 1

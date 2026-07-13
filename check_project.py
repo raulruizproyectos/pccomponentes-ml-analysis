@@ -6,7 +6,12 @@ from pathlib import Path
 
 
 RAIZ = Path(__file__).parent
-COMPROBACIONES = ["check_streamlit.py", "check_pca.py", "check_lambda.py"]
+COMPROBACIONES = [
+    "check_streamlit.py",
+    "check_pca.py",
+    "check_lambda.py",
+    "check_ec2.py",
+]
 
 
 def main():
