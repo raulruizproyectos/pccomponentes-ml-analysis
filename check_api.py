@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 
 
 load_dotenv()
-API_BASE_URL = os.getenv("API_BASE_URL", "http://127.0.0.1:8000").rstrip("/")
+API_BASE_URL = os.getenv("API_BASE_URL", "http://13.61.42.45:8000").rstrip("/")
 
 PRUEBAS = (
     ("/health", None),

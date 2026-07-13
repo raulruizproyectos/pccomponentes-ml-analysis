@@ -49,7 +49,8 @@ python -m pip install -r requirements.txt
 Copy-Item .env.example .env
 ```
 
-Para usar la API que ya está desplegada, hay que abrir `.env` y escribir:
+El archivo `.env.example` ya utiliza la API pública. Después de copiarlo no
+hace falta cambiar esta dirección:
 
 ```text
 API_BASE_URL=http://13.61.42.45:8000
