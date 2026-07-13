@@ -52,6 +52,7 @@ from aws.orquestador import (
     resumen_disponibilidad_local,
 )
 from aws.infra_lambda import (
+    configurar_red_lambda,
     desplegar_lambda,
     empaquetar_lambda,
     invocar_lambda_prueba,
@@ -187,6 +188,12 @@ def _crear_parser() -> argparse.ArgumentParser:
     )
     verificar_lambda_cmd.add_argument("--bucket", default=None, help="Bucket S3")
     verificar_lambda_cmd.add_argument("--region", default=None, help="Región AWS")
+
+    red_lambda = subparsers.add_parser(
+        "asegurar-red-lambda",
+        help="Conecta la Lambda existente a RDS mediante la VPC",
+    )
+    red_lambda.add_argument("--region", default=None, help="Region AWS")
 
     probar_lambda = subparsers.add_parser(
         "probar-lambda",
@@ -380,9 +387,8 @@ def _comando_desplegar_lambda(args: argparse.Namespace) -> int:
     print(resultado.mensaje)
     print(json.dumps(resultado.__dict__, indent=2, ensure_ascii=False))
     print(
-        "\nNota RDS: Lambda se conecta desde la red de AWS. "
-        "La opción recomendada es usar Lambda en VPC y permitir "
-        "PostgreSQL (5432) solo desde su grupo de seguridad."
+        "\nRed segura: Lambda usa la VPC y PostgreSQL solo permite "
+        "el acceso desde su grupo de seguridad."
     )
     return 0
 
@@ -392,6 +398,12 @@ def _comando_verificar_lambda(args: argparse.Namespace) -> int:
         bucket=args.bucket or AWS_S3_BUCKET,
         region=args.region or AWS_REGION,
     )
+    print(json.dumps(resultado, indent=2, ensure_ascii=False))
+    return 0
+
+
+def _comando_asegurar_red_lambda(args: argparse.Namespace) -> int:
+    resultado = configurar_red_lambda(region=args.region or AWS_REGION)
     print(json.dumps(resultado, indent=2, ensure_ascii=False))
     return 0
 
@@ -464,6 +476,8 @@ def main() -> int:
             return _comando_desplegar_lambda(args)
         if args.comando == "verificar-lambda":
             return _comando_verificar_lambda(args)
+        if args.comando == "asegurar-red-lambda":
+            return _comando_asegurar_red_lambda(args)
         if args.comando == "probar-lambda":
             return _comando_probar_lambda(args)
         if args.comando == "desplegar-ec2":

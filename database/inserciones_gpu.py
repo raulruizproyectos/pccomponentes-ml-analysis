@@ -42,7 +42,22 @@ def insertar_productos_gpu(conn, data_productos):
                 %(posicion_listado)s,
                 %(presente_en_detalle)s,
                 %(fuente)s
-            );
+            )
+            ON CONFLICT (producto_id) DO UPDATE SET
+                nombre = EXCLUDED.nombre,
+                sku = EXCLUDED.sku,
+                marca = EXCLUDED.marca,
+                precio = EXCLUDED.precio,
+                moneda = EXCLUDED.moneda,
+                valoracion_media = EXCLUDED.valoracion_media,
+                total_opiniones = EXCLUDED.total_opiniones,
+                total_resenas_con_texto = EXCLUDED.total_resenas_con_texto,
+                porcentaje_recomendacion = EXCLUDED.porcentaje_recomendacion,
+                numero_recomendaciones = EXCLUDED.numero_recomendaciones,
+                pagina_origen = EXCLUDED.pagina_origen,
+                posicion_listado = EXCLUDED.posicion_listado,
+                presente_en_detalle = EXCLUDED.presente_en_detalle,
+                fuente = EXCLUDED.fuente;
             """,
             data_productos,
         )
@@ -77,7 +92,18 @@ def insertar_especificaciones_gpu(conn, data_especificaciones):
                 %(reloj_boost)s,
                 %(salidas_video)s,
                 %(resolucion_maxima)s
-            );
+            )
+            ON CONFLICT (producto_id) DO UPDATE SET
+                gpu = EXCLUDED.gpu,
+                memoria_vram = EXCLUDED.memoria_vram,
+                tipo_memoria = EXCLUDED.tipo_memoria,
+                bus_memoria = EXCLUDED.bus_memoria,
+                ancho_banda_memoria = EXCLUDED.ancho_banda_memoria,
+                velocidad_memoria = EXCLUDED.velocidad_memoria,
+                reloj_base = EXCLUDED.reloj_base,
+                reloj_boost = EXCLUDED.reloj_boost,
+                salidas_video = EXCLUDED.salidas_video,
+                resolucion_maxima = EXCLUDED.resolucion_maxima;
             """,
             data_especificaciones,
         )
@@ -104,7 +130,14 @@ def insertar_distribucion_valoraciones_gpu(conn, data_distribuciones):
                 %(estrellas_2)s,
                 %(estrellas_1)s,
                 %(fuente_desglose)s
-            );
+            )
+            ON CONFLICT (producto_id) DO UPDATE SET
+                estrellas_5 = EXCLUDED.estrellas_5,
+                estrellas_4 = EXCLUDED.estrellas_4,
+                estrellas_3 = EXCLUDED.estrellas_3,
+                estrellas_2 = EXCLUDED.estrellas_2,
+                estrellas_1 = EXCLUDED.estrellas_1,
+                fuente_desglose = EXCLUDED.fuente_desglose;
             """,
             data_distribuciones,
         )
@@ -129,7 +162,12 @@ def insertar_resenas_gpu(conn, data_resenas):
                 %(texto_resena)s,
                 %(pros)s,
                 %(contras)s
-            );
+            )
+            ON CONFLICT (resena_id) DO UPDATE SET
+                fecha_resena_texto = EXCLUDED.fecha_resena_texto,
+                texto_resena = EXCLUDED.texto_resena,
+                pros = EXCLUDED.pros,
+                contras = EXCLUDED.contras;
             """,
             data_resenas,
         )

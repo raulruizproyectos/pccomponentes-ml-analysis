@@ -8,6 +8,7 @@ script = _crear_user_data("eu-north-1")
 assert "postgresql://" not in script
 assert PARAMETRO_DATABASE_URL in script
 assert "--with-decryption" in script
+assert "python3.11 -m venv" in script
 assert "pccomponentes-api.service" in script
 
 print("EC2: comprobacion correcta")

@@ -11,6 +11,8 @@ COMPROBACIONES = [
     "check_pca.py",
     "check_lambda.py",
     "check_ec2.py",
+    "check_etl.py",
+    "check_scraper.py",
 ]
 
 

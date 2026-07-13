@@ -1,0 +1,13 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY requirements-scraper.txt .
+RUN python -m pip install --no-cache-dir -r requirements-scraper.txt
+
+COPY aws ./aws
+COPY config ./config
+COPY scrapers ./scrapers
+COPY ejecutar_scraping_programado.py .
+
+CMD ["python", "ejecutar_scraping_programado.py"]

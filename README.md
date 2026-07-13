@@ -4,6 +4,13 @@ Proyecto académico para extraer, limpiar, guardar y analizar información de me
 
 El proyecto incluye scraping, archivos JSON, PostgreSQL en RDS, S3, Lambda, clustering, análisis de sentimiento, FastAPI y una interfaz en Streamlit.
 
+## Estado de la entrega
+
+El proyecto está terminado y listo para su evaluación. El scraping semanal está
+preparado, pero se deja desactivado para evitar consumos automáticos en AWS.
+La lista completa de comprobaciones está en
+[`ESTADO_ENTREGA.md`](ESTADO_ENTREGA.md).
+
 ## Integrantes
 
 - Dani
@@ -14,9 +21,19 @@ El proyecto incluye scraping, archivos JSON, PostgreSQL en RDS, S3, Lambda, clus
 
 Esta sección permite comprobar la entrega siguiendo los criterios de `enunciado.md`.
 
+API desplegada en EC2:
+
+```text
+http://13.61.42.45:8000
+http://13.61.42.45:8000/docs
+```
+
+Estas direcciones son públicas y se pueden probar desde cualquier IP. No es
+necesario conectarse directamente a RDS ni disponer de credenciales de AWS.
+
 ### 1. Preparar el proyecto
 
-Requisitos: Python 3.11 y acceso a una base de datos PostgreSQL con los datos del proyecto.
+Requisitos: Python 3.11 o superior y acceso a una base de datos PostgreSQL con los datos del proyecto. El proyecto se ha probado con Python 3.11.
 
 ```powershell
 git clone https://github.com/raulruizproyectos/pccomponentes-ml-analysis.git
@@ -27,7 +44,13 @@ python -m pip install -r requirements.txt
 Copy-Item .env.example .env
 ```
 
-Editar `.env` y escribir la conexión recibida por un canal privado:
+Para usar la API ya desplegada, editar `.env` y escribir:
+
+```text
+API_BASE_URL=http://13.61.42.45:8000
+```
+
+Solo es necesario añadir `DATABASE_URL` si se quiere ejecutar también FastAPI localmente. Esta conexión se entrega por un canal privado:
 
 ```text
 DATABASE_URL=postgresql://usuario:password@host:5432/pccomponentes_ml?sslmode=require
@@ -70,7 +93,8 @@ Esta orden prueba todos los endpoints principales, incluidos los tres exigidos e
 
 ### 4. Iniciar Streamlit
 
-Con FastAPI todavía iniciado, abrir otra terminal:
+Si se usa FastAPI local, mantenerlo iniciado. Si se usa la API pública, basta
+con haber guardado `API_BASE_URL` en `.env`. Después ejecutar:
 
 ```powershell
 python -m streamlit run streamlit_app/streamlit_main.py
@@ -122,7 +146,7 @@ http://127.0.0.1:8000/modelos/pca?categoria=memoria_ram
 
 | Criterio de entrega | Implementación |
 |---|---|
-| Scraping de productos y reseñas | `scrapers/` y `ejecutar_scraper.py`. |
+| Scraping de productos y reseñas | `scrapers/`, `Dockerfile.scraper` y el temporizador de `deploy/`. |
 | Datos brutos y procesados | `data/brutos/` y `data/procesados/`. |
 | Limpieza y ETL | `pipeline/` y `aws/lambda_handler.py`. |
 | S3, Lambda y PostgreSQL RDS | `aws/`, `database/` y `ejecutar_aws.py`. |
@@ -131,9 +155,47 @@ http://127.0.0.1:8000/modelos/pca?categoria=memoria_ram
 | Análisis de sentimiento | Modelo multilingüe, con resultados en PostgreSQL. |
 | API con los tres endpoints pedidos | `api/main.py`. |
 | Dashboard y mapa PCA | `streamlit_app/streamlit_main.py`. |
-| Despliegue FastAPI en EC2 | Pendiente de completar. |
+| Despliegue FastAPI en EC2 | Instancia pública operativa en `http://13.61.42.45:8000`. |
 
 La preparación inicial del conjunto GPU incluyó una limpieza asistida con IA, autorizada por el profesor. Después se adaptaron y validaron los datos con el código de `pipeline/limpieza_gpu.py`.
+
+## Scraping programado
+
+El proyecto incluye un temporizador para ejecutar cada domingo una prueba pequeña
+de una página y cinco productos RAM. Primero sube `listado_ram.json` y después
+`detalle_ram.json` a S3. El segundo archivo activa Lambda una sola vez.
+
+Por defecto se deja desactivado para evitar consumos automáticos en la cuenta
+AWS. El temporizador de Linux no tiene coste, pero la ejecución utiliza EC2, S3,
+Lambda y RDS. Si se quiere usar cada semana, se puede activar en EC2 con:
+
+```bash
+sudo systemctl enable --now pccomponentes-scraper.timer
+```
+
+Para probar el flujo una sola vez sin dejarlo programado:
+
+```bash
+sudo systemctl start pccomponentes-scraper.service
+```
+
+Archivos principales:
+
+- `Dockerfile.scraper`: crea el contenedor con Python 3.11.
+- `ejecutar_scraping_programado.py`: ejecuta el scraping y sube los dos JSON.
+- `deploy/pccomponentes-scraper.timer`: establece la ejecución semanal.
+
+Comprobación local sin hacer scraping:
+
+```powershell
+python check_scraper.py
+```
+
+Construcción manual del contenedor:
+
+```powershell
+docker build -f Dockerfile.scraper -t pccomponentes-scraper .
+```
 
 ## Flujo de datos
 
@@ -157,6 +219,9 @@ La infraestructura activa utiliza:
 - Bucket S3 `pccomponents-bkt` en `eu-north-1`.
 - Lambda `pccomponentes-ml-etl` con dos disparadores, uno para RAM y otro para GPU.
 - PostgreSQL RDS `database-1`.
+- Lambda conectada a RDS mediante la VPC y un grupo de seguridad propio.
+- Endpoint privado de S3 para que Lambda no necesite salida a Internet.
+- PostgreSQL cerrado a Internet; solo acceden Lambda, EC2 y las IP autorizadas del equipo.
 - IAM Identity Center para el acceso temporal del equipo.
 
 Comprobaciones locales sin modificar AWS:
@@ -176,7 +241,23 @@ python ejecutar_aws.py verificar-s3
 python ejecutar_aws.py verificar-lambda
 ```
 
+El comando idempotente que prepara la red privada de Lambda es:
+
+```powershell
+python ejecutar_aws.py asegurar-red-lambda
+```
+
 No se deben guardar claves permanentes de AWS en `.env` ni en otros archivos del proyecto.
+
+La demostración controlada del flujo completo se realizó con estos objetos:
+
+```text
+brutos/ram/detalle_ram.json
+brutos/tarjetas_graficas/tarjetas_graficas.json
+```
+
+Lambda limpió y actualizó en RDS 1646 productos RAM y 500 tarjetas gráficas,
+sin duplicar los registros existentes.
 
 ## Estructura principal
 
@@ -207,10 +288,3 @@ check_*.py       Comprobaciones reproducibles
 - 500 productos y especificaciones.
 - 3564 reseñas con resultado de sentimiento.
 - Tres grupos de clustering: alta gama, gama media y ficha incompleta.
-
-## Trabajo pendiente
-
-1. Desplegar FastAPI en EC2 y añadir su URL de evaluación.
-2. Restringir el acceso público de RDS después de conectar Lambda y EC2 mediante una red privada.
-3. Preparar una demostración final del flujo completo.
-4. Configurar y demostrar la ejecución periódica del scraping.

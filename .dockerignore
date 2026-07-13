@@ -1,0 +1,9 @@
+.git
+.venv
+build
+data
+models
+notebooks
+__pycache__
+*.pyc
+*.ipynb

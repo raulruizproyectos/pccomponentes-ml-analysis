@@ -1,0 +1,11 @@
+[Unit]
+Description=Scraping semanal de memorias RAM
+After=network-online.target docker.service
+Requires=docker.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/pccomponentes-ml-analysis
+Environment=AWS_REGION=eu-north-1
+Environment=AWS_S3_BUCKET=pccomponents-bkt
+ExecStart=/usr/bin/docker run --rm --network host -e AWS_REGION -e AWS_S3_BUCKET pccomponentes-scraper:latest

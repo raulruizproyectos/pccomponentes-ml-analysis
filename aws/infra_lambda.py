@@ -13,6 +13,7 @@ import json
 import shutil
 import subprocess
 import sys
+import time
 import zipfile
 from dataclasses import dataclass
 from pathlib import Path
@@ -34,6 +35,10 @@ LAMBDA_HANDLER = "aws.lambda_handler.handler"
 LAMBDA_RUNTIME = "python3.12"
 LAMBDA_TIMEOUT = 300
 LAMBDA_MEMORY = 512
+LAMBDA_SECURITY_GROUP_NAME = "pccomponentes-lambda-sg"
+LAMBDA_VPC_POLICY_ARN = (
+    "arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
+)
 
 PAQUETES_PROYECTO = ("aws", "config", "database", "pipeline")
 
@@ -63,6 +68,41 @@ def _cliente_s3(region: str | None = None):
 
 def _cliente_sts(region: str | None = None):
     return boto3.client("sts", region_name=region or AWS_REGION)
+
+
+def _cliente_ec2(region: str | None = None):
+    return boto3.client("ec2", region_name=region or AWS_REGION)
+
+
+def _codigo_error(error: ClientError) -> str:
+    return error.response.get("Error", {}).get("Code", "")
+
+
+def _nombre_rol(rol_arn: str) -> str:
+    return rol_arn.rsplit("/", 1)[-1]
+
+
+def _es_regla_publica_postgres(regla: dict) -> bool:
+    return (
+        not regla.get("IsEgress")
+        and regla.get("IpProtocol") == "tcp"
+        and regla.get("FromPort") == 5432
+        and regla.get("ToPort") == 5432
+        and regla.get("CidrIpv4") == "0.0.0.0/0"
+    )
+
+
+def _asegurar_permiso_vpc(nombre_rol: str, region: str) -> None:
+    iam = _cliente_iam(region)
+    permisos = iam.list_attached_role_policies(RoleName=nombre_rol)[
+        "AttachedPolicies"
+    ]
+    if LAMBDA_VPC_POLICY_ARN not in [permiso["PolicyArn"] for permiso in permisos]:
+        iam.attach_role_policy(
+            RoleName=nombre_rol,
+            PolicyArn=LAMBDA_VPC_POLICY_ARN,
+        )
+        time.sleep(10)
 
 
 def empaquetar_lambda(*, destino: Path | None = None) -> Path:
@@ -152,25 +192,195 @@ def _asegurar_rol_lambda(
     trust_policy = json.loads(POLITICA_ROL.read_text(encoding="utf-8"))
 
     try:
-        respuesta = iam.get_role(RoleName=LAMBDA_ROLE_NAME)
-        rol_arn = respuesta["Role"]["Arn"]
+        rol_arn = _cliente_lambda(region).get_function_configuration(
+            FunctionName=LAMBDA_FUNCTION_NAME
+        )["Role"]
+        nombre_rol = _nombre_rol(rol_arn)
     except ClientError as error:
-        if error.response["Error"]["Code"] != "NoSuchEntity":
+        if _codigo_error(error) != "ResourceNotFoundException":
             raise
-        respuesta = iam.create_role(
-            RoleName=LAMBDA_ROLE_NAME,
-            AssumeRolePolicyDocument=json.dumps(trust_policy),
-            Description="Rol para Lambda ETL pccomponentes-ml-analysis",
-        )
-        rol_arn = respuesta["Role"]["Arn"]
+        try:
+            respuesta = iam.get_role(RoleName=LAMBDA_ROLE_NAME)
+            rol_arn = respuesta["Role"]["Arn"]
+        except ClientError as role_error:
+            if _codigo_error(role_error) != "NoSuchEntity":
+                raise
+            respuesta = iam.create_role(
+                RoleName=LAMBDA_ROLE_NAME,
+                AssumeRolePolicyDocument=json.dumps(trust_policy),
+                Description="Rol para Lambda ETL pccomponentes-ml-analysis",
+            )
+            rol_arn = respuesta["Role"]["Arn"]
+            time.sleep(10)
+        nombre_rol = LAMBDA_ROLE_NAME
 
     iam.put_role_policy(
-        RoleName=LAMBDA_ROLE_NAME,
+        RoleName=nombre_rol,
         PolicyName="pccomponentes-ml-lambda-inline",
         PolicyDocument=json.dumps(_politica_rol_lambda(bucket)),
     )
+    _asegurar_permiso_vpc(nombre_rol, region or AWS_REGION)
 
     return rol_arn
+
+
+def _asegurar_red_lambda(region: str) -> dict:
+    """Conecta Lambda a la VPC de RDS y permite leer S3 sin Internet."""
+    from aws.infra_ec2 import _obtener_red_rds
+
+    red = _obtener_red_rds(region)
+    ec2 = _cliente_ec2(region)
+    grupos = ec2.describe_security_groups(
+        Filters=[
+            {"Name": "group-name", "Values": [LAMBDA_SECURITY_GROUP_NAME]},
+            {"Name": "vpc-id", "Values": [red["vpc_id"]]},
+        ]
+    )["SecurityGroups"]
+
+    if grupos:
+        security_group_id = grupos[0]["GroupId"]
+    else:
+        security_group_id = ec2.create_security_group(
+            GroupName=LAMBDA_SECURITY_GROUP_NAME,
+            Description="Acceso de Lambda ETL a RDS",
+            VpcId=red["vpc_id"],
+        )["GroupId"]
+        ec2.create_tags(
+            Resources=[security_group_id],
+            Tags=[{"Key": "Project", "Value": "pccomponentes"}],
+        )
+
+    for rds_security_group_id in red["security_group_ids"]:
+        try:
+            ec2.authorize_security_group_ingress(
+                GroupId=rds_security_group_id,
+                IpPermissions=[
+                    {
+                        "IpProtocol": "tcp",
+                        "FromPort": 5432,
+                        "ToPort": 5432,
+                        "UserIdGroupPairs": [
+                            {
+                                "GroupId": security_group_id,
+                                "Description": "Lambda ETL",
+                            }
+                        ],
+                    }
+                ],
+            )
+        except ClientError as error:
+            if _codigo_error(error) != "InvalidPermission.Duplicate":
+                raise
+
+    tablas = ec2.describe_route_tables(
+        Filters=[{"Name": "vpc-id", "Values": [red["vpc_id"]]}]
+    )["RouteTables"]
+    route_table_ids = []
+    for tabla in tablas:
+        asociaciones = tabla.get("Associations", [])
+        usa_subred = any(
+            asociacion.get("SubnetId") in red["subnet_ids"]
+            for asociacion in asociaciones
+        )
+        es_principal = any(
+            asociacion.get("Main") is True for asociacion in asociaciones
+        )
+        if usa_subred or es_principal:
+            route_table_ids.append(tabla["RouteTableId"])
+
+    servicio_s3 = f"com.amazonaws.{region}.s3"
+    endpoints = ec2.describe_vpc_endpoints(
+        Filters=[
+            {"Name": "vpc-id", "Values": [red["vpc_id"]]},
+            {"Name": "service-name", "Values": [servicio_s3]},
+            {"Name": "vpc-endpoint-state", "Values": ["pending", "available"]},
+        ]
+    )["VpcEndpoints"]
+
+    if endpoints:
+        endpoint = endpoints[0]
+        faltantes = list(
+            set(route_table_ids) - set(endpoint.get("RouteTableIds", []))
+        )
+        if faltantes:
+            ec2.modify_vpc_endpoint(
+                VpcEndpointId=endpoint["VpcEndpointId"],
+                AddRouteTableIds=faltantes,
+            )
+        endpoint_id = endpoint["VpcEndpointId"]
+    else:
+        endpoint_id = ec2.create_vpc_endpoint(
+            VpcId=red["vpc_id"],
+            ServiceName=servicio_s3,
+            VpcEndpointType="Gateway",
+            RouteTableIds=route_table_ids,
+            TagSpecifications=[
+                {
+                    "ResourceType": "vpc-endpoint",
+                    "Tags": [
+                        {"Key": "Name", "Value": "pccomponentes-s3-endpoint"},
+                        {"Key": "Project", "Value": "pccomponentes"},
+                    ],
+                }
+            ],
+        )["VpcEndpoint"]["VpcEndpointId"]
+
+    return {
+        "vpc_id": red["vpc_id"],
+        "subnet_ids": red["subnet_ids"],
+        "security_group_ids": [security_group_id],
+        "rds_security_group_ids": red["security_group_ids"],
+        "s3_endpoint_id": endpoint_id,
+    }
+
+
+def _cerrar_acceso_publico_rds(red: dict, region: str) -> None:
+    ec2 = _cliente_ec2(region)
+    for group_id in red["rds_security_group_ids"]:
+        reglas = ec2.describe_security_group_rules(
+            Filters=[{"Name": "group-id", "Values": [group_id]}]
+        )["SecurityGroupRules"]
+        reglas_publicas = [
+            regla["SecurityGroupRuleId"]
+            for regla in reglas
+            if _es_regla_publica_postgres(regla)
+        ]
+        if reglas_publicas:
+            ec2.revoke_security_group_ingress(
+                GroupId=group_id,
+                SecurityGroupRuleIds=reglas_publicas,
+            )
+
+
+def configurar_red_lambda(region: str | None = None) -> dict:
+    """Aplica la red privada a la Lambda ya desplegada."""
+    region = region or AWS_REGION
+    lambda_client = _cliente_lambda(region)
+    config = lambda_client.get_function_configuration(
+        FunctionName=LAMBDA_FUNCTION_NAME
+    )
+    nombre_rol = _nombre_rol(config["Role"])
+    _asegurar_permiso_vpc(nombre_rol, region)
+    red = _asegurar_red_lambda(region)
+    vpc_actual = config.get("VpcConfig", {})
+    red_ya_configurada = (
+        set(vpc_actual.get("SubnetIds", [])) == set(red["subnet_ids"])
+        and set(vpc_actual.get("SecurityGroupIds", []))
+        == set(red["security_group_ids"])
+    )
+    if not red_ya_configurada:
+        lambda_client.update_function_configuration(
+            FunctionName=LAMBDA_FUNCTION_NAME,
+            VpcConfig={
+                "SubnetIds": red["subnet_ids"],
+                "SecurityGroupIds": red["security_group_ids"],
+            },
+        )
+        lambda_client.get_waiter("function_updated_v2").wait(
+            FunctionName=LAMBDA_FUNCTION_NAME
+        )
+    _cerrar_acceso_publico_rds(red, region)
+    return red
 
 
 def _asegurar_funcion_lambda(
@@ -179,6 +389,7 @@ def _asegurar_funcion_lambda(
     paquete: Path,
     database_url: str,
     bucket: str,
+    red: dict,
     region: str | None = None,
 ) -> str:
     lambda_client = _cliente_lambda(region)
@@ -188,7 +399,6 @@ def _asegurar_funcion_lambda(
     variables = {
         "DATABASE_URL": database_url,
         "AWS_S3_BUCKET": bucket,
-        "AWS_REGION": region,
     }
 
     try:
@@ -204,6 +414,9 @@ def _asegurar_funcion_lambda(
             FunctionName=LAMBDA_FUNCTION_NAME,
             ZipFile=codigo_zip,
         )
+        lambda_client.get_waiter("function_updated_v2").wait(
+            FunctionName=LAMBDA_FUNCTION_NAME
+        )
         lambda_client.update_function_configuration(
             FunctionName=LAMBDA_FUNCTION_NAME,
             Role=rol_arn,
@@ -212,6 +425,10 @@ def _asegurar_funcion_lambda(
             Timeout=LAMBDA_TIMEOUT,
             MemorySize=LAMBDA_MEMORY,
             Environment={"Variables": variables},
+            VpcConfig={
+                "SubnetIds": red["subnet_ids"],
+                "SecurityGroupIds": red["security_group_ids"],
+            },
         )
     else:
         lambda_client.create_function(
@@ -223,6 +440,10 @@ def _asegurar_funcion_lambda(
             Timeout=LAMBDA_TIMEOUT,
             MemorySize=LAMBDA_MEMORY,
             Environment={"Variables": variables},
+            VpcConfig={
+                "SubnetIds": red["subnet_ids"],
+                "SecurityGroupIds": red["security_group_ids"],
+            },
             Description="ETL S3 -> PostgreSQL para RAM y tarjetas gráficas",
         )
 
@@ -255,17 +476,18 @@ def _permiso_s3_invocar_lambda(
 
 
 def _crear_reglas_notificacion_s3(funcion_arn: str) -> list[dict]:
-    """Crea una regla por categoría usando el último fichero de la subida."""
+    """Crea una regla por categoría usando el último fichero bruto."""
     from aws.categorias import listar_categorias
 
     reglas = []
 
     for categoria in listar_categorias():
-        prefijo = f"procesados/{categoria.slug}/"
-        archivo_final = categoria.procesados["resenas"].name
+        prefijo = f"brutos/{categoria.slug}/"
+        tipo_final = "detalle" if categoria.lista else "dataset"
+        archivo_final = categoria.brutos[tipo_final].name
         reglas.append(
             {
-                "Id": f"etl-procesados-{categoria.slug}",
+                "Id": f"etl-brutos-{categoria.slug}",
                 "LambdaFunctionArn": funcion_arn,
                 "Events": ["s3:ObjectCreated:*"],
                 "Filter": {
@@ -334,13 +556,16 @@ def desplegar_lambda(
         raise FileNotFoundError(f"No existe el paquete Lambda: {paquete}")
 
     rol_arn = _asegurar_rol_lambda(bucket=bucket, region=region)
+    red = _asegurar_red_lambda(region)
     funcion_arn = _asegurar_funcion_lambda(
         rol_arn=rol_arn,
         paquete=paquete,
         database_url=database_url,
         bucket=bucket,
+        red=red,
         region=region,
     )
+    _cerrar_acceso_publico_rds(red, region)
     _permiso_s3_invocar_lambda(bucket=bucket, funcion_arn=funcion_arn, region=region)
     notificaciones = _configurar_notificaciones_s3(
         bucket=bucket,
@@ -390,6 +615,11 @@ def verificar_lambda(
                 "ultima_modificacion": config.get("LastModified"),
                 "timeout": config.get("Timeout"),
                 "memoria_mb": config.get("MemorySize"),
+                "vpc_id": config.get("VpcConfig", {}).get("VpcId"),
+                "subnet_ids": config.get("VpcConfig", {}).get("SubnetIds", []),
+                "security_group_ids": config.get("VpcConfig", {}).get(
+                    "SecurityGroupIds", []
+                ),
                 "variables_entorno": list(
                     config.get("Environment", {}).get("Variables", {}).keys()
                 ),
@@ -415,7 +645,7 @@ def verificar_lambda(
                             for filtro in regla.get("Filter", {})
                             .get("Key", {})
                             .get("FilterRules", [])
-                            if filtro.get("Name") == "prefix"
+                            if filtro.get("Name", "").lower() == "prefix"
                         ),
                         None,
                     ),
@@ -425,7 +655,7 @@ def verificar_lambda(
                             for filtro in regla.get("Filter", {})
                             .get("Key", {})
                             .get("FilterRules", [])
-                            if filtro.get("Name") == "suffix"
+                            if filtro.get("Name", "").lower() == "suffix"
                         ),
                         None,
                     ),

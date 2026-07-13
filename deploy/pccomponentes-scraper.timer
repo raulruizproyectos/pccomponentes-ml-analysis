@@ -1,0 +1,11 @@
+[Unit]
+Description=Ejecuta el scraping de RAM una vez por semana
+
+[Timer]
+OnCalendar=Sun *-*-* 04:00:00 UTC
+RandomizedDelaySec=30m
+Persistent=true
+Unit=pccomponentes-scraper.service
+
+[Install]
+WantedBy=timers.target

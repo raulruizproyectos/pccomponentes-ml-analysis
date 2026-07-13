@@ -8,13 +8,14 @@ import time
 import boto3
 from botocore.exceptions import ClientError
 
-from config.settings import AWS_REGION
+from config.settings import AWS_REGION, AWS_S3_BUCKET
 
 
 NOMBRE_INSTANCIA = "pccomponentes-fastapi"
 NOMBRE_ROL = "pccomponentes-ec2-fastapi-role"
 NOMBRE_PERFIL = "pccomponentes-ec2-fastapi-profile"
 NOMBRE_SG = "pccomponentes-fastapi-sg"
+NOMBRE_IP = "pccomponentes-fastapi-ip"
 PARAMETRO_DATABASE_URL = "/pccomponentes/fastapi/database-url"
 REPOSITORIO = "https://github.com/raulruizproyectos/pccomponentes-ml-analysis.git"
 
@@ -100,6 +101,22 @@ def _asegurar_rol(region):
         PolicyName="leer-database-url",
         PolicyDocument=json.dumps(permiso_parametro),
     )
+    if AWS_S3_BUCKET:
+        permiso_s3 = {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Effect": "Allow",
+                    "Action": "s3:PutObject",
+                    "Resource": f"arn:aws:s3:::{AWS_S3_BUCKET}/brutos/ram/*",
+                }
+            ],
+        }
+        iam.put_role_policy(
+            RoleName=NOMBRE_ROL,
+            PolicyName="subir-scraping-s3",
+            PolicyDocument=json.dumps(permiso_s3),
+        )
     iam.attach_role_policy(
         RoleName=NOMBRE_ROL,
         PolicyArn="arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore",
@@ -201,12 +218,12 @@ def _crear_user_data(region):
     return f"""#!/bin/bash
 set -euo pipefail
 
-dnf install -y git
+dnf install -y git python3.11
 cd /opt
 git clone {REPOSITORIO} pccomponentes-ml-analysis
 cd pccomponentes-ml-analysis
 
-python3 -m venv .venv
+python3.11 -m venv .venv
 .venv/bin/python -m pip install --upgrade pip
 .venv/bin/python -m pip install -r requirements-api.txt
 
@@ -256,17 +273,55 @@ def _buscar_instancia(ec2):
     return None
 
 
+def _asegurar_ip_elastica(instance_id, region):
+    ec2 = _cliente("ec2", region)
+    respuesta = ec2.describe_addresses(
+        Filters=[{"Name": "tag:Name", "Values": [NOMBRE_IP]}]
+    )
+
+    if respuesta["Addresses"]:
+        direccion = respuesta["Addresses"][0]
+    else:
+        direccion = ec2.allocate_address(
+            Domain="vpc",
+            NetworkBorderGroup=region,
+            TagSpecifications=[
+                {
+                    "ResourceType": "elastic-ip",
+                    "Tags": [
+                        {"Key": "Name", "Value": NOMBRE_IP},
+                        {"Key": "Project", "Value": "pccomponentes"},
+                    ],
+                }
+            ],
+        )
+
+    if direccion.get("InstanceId") != instance_id:
+        ec2.associate_address(
+            InstanceId=instance_id,
+            AllocationId=direccion["AllocationId"],
+        )
+
+    return direccion["PublicIp"]
+
+
 def desplegar_ec2(database_url, region=None):
     region = region or AWS_REGION
     ec2 = _cliente("ec2", region)
     existente = _buscar_instancia(ec2)
+    _asegurar_rol(region)
 
     if existente:
+        if existente["State"]["Name"] == "stopped":
+            ec2.start_instances(InstanceIds=[existente["InstanceId"]])
+            ec2.get_waiter("instance_running").wait(
+                InstanceIds=[existente["InstanceId"]]
+            )
+        _asegurar_ip_elastica(existente["InstanceId"], region)
         return verificar_ec2(region)
 
     red = _obtener_red_rds(region)
     _guardar_database_url(database_url, region)
-    _asegurar_rol(region)
     security_group_id = _asegurar_security_group(red, region)
 
     ami = _cliente("ssm", region).get_parameter(
@@ -316,6 +371,7 @@ def desplegar_ec2(database_url, region=None):
     )
     instance_id = respuesta["Instances"][0]["InstanceId"]
     ec2.get_waiter("instance_running").wait(InstanceIds=[instance_id])
+    _asegurar_ip_elastica(instance_id, region)
     return verificar_ec2(region)
 
 

@@ -22,7 +22,14 @@ def insertar_distribucion_valoraciones(conn, data_distribuciones):
                 %(estrellas_2)s,
                 %(estrellas_1)s,
                 %(fuente_desglose)s
-            );
+            )
+            ON CONFLICT (producto_id) DO UPDATE SET
+                estrellas_5 = EXCLUDED.estrellas_5,
+                estrellas_4 = EXCLUDED.estrellas_4,
+                estrellas_3 = EXCLUDED.estrellas_3,
+                estrellas_2 = EXCLUDED.estrellas_2,
+                estrellas_1 = EXCLUDED.estrellas_1,
+                fuente_desglose = EXCLUDED.fuente_desglose;
             """,
             data_distribuciones,
         )
@@ -69,7 +76,22 @@ def insertar_productos_ram(conn, data_productos):
                 %(posicion_listado)s,
                 %(presente_en_detalle)s,
                 %(fuente)s
-            );
+            )
+            ON CONFLICT (producto_id) DO UPDATE SET
+                nombre = EXCLUDED.nombre,
+                sku = EXCLUDED.sku,
+                marca = EXCLUDED.marca,
+                precio = EXCLUDED.precio,
+                moneda = EXCLUDED.moneda,
+                valoracion_media = EXCLUDED.valoracion_media,
+                total_opiniones = EXCLUDED.total_opiniones,
+                total_resenas_con_texto = EXCLUDED.total_resenas_con_texto,
+                porcentaje_recomendacion = EXCLUDED.porcentaje_recomendacion,
+                numero_recomendaciones = EXCLUDED.numero_recomendaciones,
+                pagina_origen = EXCLUDED.pagina_origen,
+                posicion_listado = EXCLUDED.posicion_listado,
+                presente_en_detalle = EXCLUDED.presente_en_detalle,
+                fuente = EXCLUDED.fuente;
             """,
             data_productos,
         )
@@ -110,7 +132,21 @@ def insertar_especificaciones_ram(conn, data_especificaciones):
                 %(color)s,
                 %(disipador)s,
                 %(fuente)s
-            );
+            )
+            ON CONFLICT (producto_id) DO UPDATE SET
+                tipo_memoria = EXCLUDED.tipo_memoria,
+                capacidad_gb = EXCLUDED.capacidad_gb,
+                kit = EXCLUDED.kit,
+                num_modulos = EXCLUDED.num_modulos,
+                capacidad_por_modulo_gb = EXCLUDED.capacidad_por_modulo_gb,
+                frecuencia_mhz = EXCLUDED.frecuencia_mhz,
+                latencia_cl = EXCLUDED.latencia_cl,
+                voltaje = EXCLUDED.voltaje,
+                diseno = EXCLUDED.diseno,
+                compatibilidad = EXCLUDED.compatibilidad,
+                color = EXCLUDED.color,
+                disipador = EXCLUDED.disipador,
+                fuente = EXCLUDED.fuente;
             """,
             data_especificaciones,
         )
@@ -143,7 +179,16 @@ def insertar_resenas_ram(conn, data_resenas):
                 %(contras)s,
                 %(likes)s,
                 %(numero_respuestas)s
-            );
+            )
+            ON CONFLICT (resena_id) DO UPDATE SET
+                valoracion = EXCLUDED.valoracion,
+                fecha_resena_texto = EXCLUDED.fecha_resena_texto,
+                variante_modelo = EXCLUDED.variante_modelo,
+                texto_resena = EXCLUDED.texto_resena,
+                pros = EXCLUDED.pros,
+                contras = EXCLUDED.contras,
+                likes = EXCLUDED.likes,
+                numero_respuestas = EXCLUDED.numero_respuestas;
             """,
             data_resenas,
         )
